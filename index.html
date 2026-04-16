@@ -10,312 +10,194 @@
 <title>Марафон · Анастасія</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Unbounded:wght@300;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0a0d08;
-  --s1: #111408;
-  --s2: #181c10;
-  --s3: #1f2415;
-  --acc: #c5f135;
-  --acc2: #8fd42a;
-  --dim: #4a5240;
-  --txt: #dde8c4;
-  --border: rgba(197,241,53,0.1);
-  --red: #ff5c5c;
-  --blue: #5cb8ff;
-  --amber: #ffb830;
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bot: env(safe-area-inset-bottom, 0px);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-html, body { height: 100%; overflow: hidden; background: var(--bg); }
-body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); display: flex; flex-direction: column; }
-
-/* ── HEADER ── */
-.hdr {
-  background: rgba(10,13,8,0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: calc(var(--safe-top) + 12px) 20px 12px;
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-  position: relative; z-index: 10;
-}
-.hdr-row { display: flex; justify-content: space-between; align-items: center; }
-.app-name { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 700; color: var(--acc); letter-spacing: -0.02em; }
-.hdr-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--dim); }
-.countdown-strip {
-  display: flex; gap: 16px; margin-top: 10px; align-items: flex-end;
-}
-.cd-block { text-align: center; }
-.cd-num { font-family: 'Unbounded', sans-serif; font-size: 28px; font-weight: 900; color: var(--acc); line-height: 1; }
-.cd-unit { font-size: 9px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
-.cd-sep { font-family: 'Unbounded', sans-serif; font-size: 22px; color: var(--dim); margin-bottom: 4px; }
-.marathon-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--dim); margin-left: auto; text-align: right; line-height: 1.5; }
-.marathon-date strong { color: var(--txt); display: block; font-size: 13px; }
-
-/* ── SCROLL CONTENT ── */
-.content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
-.content::-webkit-scrollbar { display: none; }
-
-/* ── NAV ── */
-.nav {
-  display: flex; background: rgba(10,13,8,0.95);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--border);
-  padding-bottom: var(--safe-bot);
-  flex-shrink: 0; position: relative; z-index: 10;
-}
-.nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px 8px; border: none; background: transparent; color: var(--dim); cursor: pointer; transition: color 0.2s; font-family: 'DM Sans', sans-serif; }
-.nav-btn.active { color: var(--acc); }
-.nav-icon { font-size: 20px; line-height: 1; }
-.nav-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em; }
-
-/* ── PAGE ── */
-.page { display: none; padding: 16px 16px 24px; animation: fadeUp 0.25s ease; }
-.page.active { display: block; }
-@keyframes fadeUp { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform:translateY(0); } }
-
-/* ── CARDS ── */
-.card { background: var(--s1); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 12px; }
-.card-title { font-family: 'Unbounded', sans-serif; font-size: 11px; font-weight: 300; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-
-/* ── HOME page ── */
-.phase-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(197,241,53,0.1); border: 1px solid rgba(197,241,53,0.25); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: var(--acc); margin-bottom: 14px; font-family: 'DM Mono', monospace; }
-.phase-dot { width: 6px; height: 6px; background: var(--acc); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
-
-.prog-wrap { margin-bottom: 16px; }
-.prog-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--dim); margin-bottom: 6px; font-family: 'DM Mono', monospace; }
-.prog-bar { height: 3px; background: var(--s3); border-radius: 2px; }
-.prog-fill { height: 100%; background: linear-gradient(90deg, var(--acc2), var(--acc)); border-radius: 2px; transition: width 1s ease; }
-
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-.stat-box { background: var(--s2); border-radius: 12px; padding: 12px; }
-.stat-val { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 700; color: var(--acc); line-height: 1; }
-.stat-lbl { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
-
-/* Priorities */
-.priority-list { display: flex; flex-direction: column; gap: 8px; }
-.priority-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: var(--s2); border-radius: 10px; border-left: 3px solid transparent; }
-.priority-item.high { border-color: var(--red); }
-.priority-item.med { border-color: var(--amber); }
-.priority-item.low { border-color: var(--acc); }
-.pri-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--dim); min-width: 18px; margin-top: 1px; }
-.pri-text { font-size: 13px; color: var(--txt); line-height: 1.5; }
-.pri-tag { font-size: 10px; color: var(--dim); font-family: 'DM Mono', monospace; }
-
-/* ── PLAN page ── */
-.week-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-.week-title { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; color: var(--acc); }
-.week-sub { font-size: 11px; color: var(--dim); font-family: 'DM Mono', monospace; margin-top: 2px; }
-.gen-week-btn { background: var(--acc); color: var(--bg); border: none; border-radius: 10px; padding: 8px 14px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
-.gen-week-btn:active { transform: scale(0.97); }
-.gen-week-btn:disabled { opacity: 0.5; }
-
-.day-row { background: var(--s1); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; display: flex; gap: 12px; align-items: flex-start; }
-.day-row.today { border-color: rgba(197,241,53,0.4); background: rgba(197,241,53,0.04); }
-.day-row.rest-day { opacity: 0.55; }
-.day-col-left { min-width: 36px; text-align: center; }
-.day-name-lbl { font-family: 'Unbounded', sans-serif; font-size: 10px; font-weight: 700; color: var(--dim); }
-.day-date-lbl { font-size: 10px; color: var(--dim); font-family: 'DM Mono', monospace; margin-top: 2px; }
-.today-dot { width: 6px; height: 6px; background: var(--acc); border-radius: 50%; margin: 4px auto 0; }
-.day-col-right { flex: 1; }
-.day-type-badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-family: 'DM Mono', monospace; display: inline-block; margin-bottom: 4px; }
-.badge-easy { background: rgba(92,184,255,0.12); color: var(--blue); }
-.badge-tempo { background: rgba(255,184,48,0.12); color: var(--amber); }
-.badge-interval { background: rgba(255,92,92,0.12); color: var(--red); }
-.badge-long { background: rgba(197,241,53,0.12); color: var(--acc); }
-.badge-rest { background: rgba(74,82,64,0.3); color: var(--dim); }
-.badge-strength { background: rgba(197,241,53,0.08); color: var(--acc2); }
-.day-desc { font-size: 13px; color: var(--txt); line-height: 1.5; }
-.day-km { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--dim); margin-top: 3px; }
-
-.plan-loading { text-align: center; padding: 32px 0; }
-.spin { width: 24px; height: 24px; border: 2px solid var(--s3); border-top-color: var(--acc); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 10px; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── LOG page ── */
-.log-form { background: var(--s1); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
-.log-form-title { font-family: 'Unbounded', sans-serif; font-size: 11px; font-weight: 300; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.form-row.full { grid-template-columns: 1fr; }
-.form-group label { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 5px; font-family: 'DM Mono', monospace; }
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%; background: var(--s2); border: 1px solid var(--border); color: var(--txt);
-  font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 10px 12px;
-  border-radius: 10px; outline: none; transition: border-color 0.2s; appearance: none;
-  -webkit-appearance: none;
-}
-.form-group textarea { min-height: 64px; resize: none; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--acc); }
-.save-btn { width: 100%; padding: 14px; background: var(--acc); color: var(--bg); border: none; border-radius: 12px; font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-top: 4px; letter-spacing: 0.02em; }
-.save-btn:active { transform: scale(0.98); }
-
-.log-entries { display: flex; flex-direction: column; gap: 8px; }
-.log-entry { background: var(--s1); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
-.entry-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.entry-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--dim); }
-.entry-delete { background: none; border: none; color: var(--dim); font-size: 16px; cursor: pointer; padding: 0 4px; }
-.entry-stats { display: flex; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
-.entry-stat { font-family: 'DM Mono', monospace; font-size: 12px; }
-.entry-stat .val { color: var(--acc); font-size: 15px; font-weight: 500; display: block; }
-.entry-stat .lbl { color: var(--dim); font-size: 9px; text-transform: uppercase; }
-.entry-feel { display: flex; gap: 4px; margin-bottom: 4px; }
-.feel-dot { width: 8px; height: 8px; border-radius: 50%; }
-.entry-note { font-size: 12px; color: var(--dim); line-height: 1.5; font-style: italic; }
-.empty-log { text-align: center; padding: 32px 0; color: var(--dim); font-size: 14px; }
-
-/* ── COACH page ── */
-.chat-box { background: var(--s1); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; height: calc(100vh - 200px); max-height: 560px; }
-.chat-msgs { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; -webkit-overflow-scrolling: touch; }
-.chat-msgs::-webkit-scrollbar { display: none; }
-.msg { max-width: 88%; }
-.msg.ai { align-self: flex-start; }
-.msg.user { align-self: flex-end; }
-.bubble { padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.65; }
-.msg.ai .bubble { background: var(--s2); color: var(--txt); border-bottom-left-radius: 4px; }
-.msg.user .bubble { background: var(--acc); color: var(--bg); border-bottom-right-radius: 4px; font-weight: 400; }
-.msg-time { font-size: 9px; color: var(--dim); font-family: 'DM Mono', monospace; margin-top: 3px; padding: 0 4px; }
-.msg.user .msg-time { text-align: right; }
-.quick-qs { display: flex; gap: 6px; overflow-x: auto; padding: 8px 14px; -webkit-overflow-scrolling: touch; }
-.quick-qs::-webkit-scrollbar { display: none; }
-.qbtn { white-space: nowrap; font-size: 11px; padding: 6px 12px; background: var(--s2); border: 1px solid var(--border); color: var(--dim); border-radius: 20px; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; flex-shrink: 0; }
-.qbtn:active { border-color: var(--acc); color: var(--acc); }
-.chat-input-row { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--border); }
-.chat-inp { flex: 1; background: var(--s2); border: 1px solid var(--border); color: var(--txt); font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 10px 14px; border-radius: 22px; outline: none; transition: border-color 0.2s; }
-.chat-inp:focus { border-color: rgba(197,241,53,0.4); }
-.send-btn { width: 40px; height: 40px; background: var(--acc); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-.send-btn:active { transform: scale(0.93); }
-.send-btn svg { width: 16px; height: 16px; }
-.typing { display: flex; gap: 4px; align-items: center; padding: 2px 0; }
-.typing span { width: 5px; height: 5px; background: var(--dim); border-radius: 50%; animation: bounce 1.2s ease infinite; }
-.typing span:nth-child(2) { animation-delay: .2s; }
-.typing span:nth-child(3) { animation-delay: .4s; }
-@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
-
-/* GENERATE workout */
-.gen-card { background: var(--s1); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 12px; }
-.gen-card-title { font-family: 'Unbounded', sans-serif; font-size: 11px; font-weight: 300; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
-.sel-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.sel-group label { font-size: 10px; color: var(--dim); font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 5px; }
-.sel-group select, .sel-group input {
-  width: 100%; background: var(--s2); border: 1px solid var(--border); color: var(--txt);
-  font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 9px 12px;
-  border-radius: 10px; outline: none; appearance: none; -webkit-appearance: none;
-  transition: border-color 0.2s;
-}
-.sel-group select:focus, .sel-group input:focus { border-color: var(--acc); }
-.big-btn { width: 100%; padding: 14px; background: var(--acc); color: var(--bg); border: none; border-radius: 12px; font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; transition: all 0.2s; letter-spacing: 0.01em; }
-.big-btn:active { transform: scale(0.98); }
-.big-btn:disabled { opacity: 0.5; }
-.workout-out { background: var(--s2); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-top: 10px; display: none; animation: fadeUp 0.3s ease; }
-.workout-out.show { display: block; }
-.wo-head { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-.wo-text { font-size: 13px; line-height: 1.85; color: var(--txt); white-space: pre-wrap; }
+:root{--bg:#0a0d08;--s1:#111408;--s2:#181c10;--s3:#1f2415;--acc:#c5f135;--acc2:#8fd42a;--dim:#4a5240;--txt:#dde8c4;--brd:rgba(197,241,53,0.1);--red:#ff5c5c;--blue:#5cb8ff;--amb:#ffb830;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;background:var(--bg);}
+body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--txt);display:flex;flex-direction:column;}
+.hdr{background:rgba(10,13,8,0.95);padding:calc(env(safe-area-inset-top,0px) + 12px) 18px 12px;border-bottom:1px solid var(--brd);flex-shrink:0;}
+.hdr-row{display:flex;justify-content:space-between;align-items:center;}
+.aname{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--acc);}
+.hdate{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
+.cds{display:flex;gap:12px;margin-top:10px;align-items:flex-end;}
+.cdb{text-align:center;}
+.cdn{font-family:'Unbounded',sans-serif;font-size:26px;font-weight:900;color:var(--acc);line-height:1;}
+.cdu{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:2px;}
+.cdsp{font-family:'Unbounded',sans-serif;font-size:20px;color:var(--dim);margin-bottom:4px;}
+.mdt{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-left:auto;text-align:right;line-height:1.6;}
+.mdt strong{color:var(--txt);display:block;font-size:12px;}
+.content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.content::-webkit-scrollbar{display:none;}
+.nav{display:flex;background:rgba(10,13,8,0.97);border-top:1px solid var(--brd);padding-bottom:env(safe-area-inset-bottom,0px);flex-shrink:0;}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px 8px;border:none;background:transparent;color:var(--dim);cursor:pointer;font-family:'DM Sans',sans-serif;}
+.nb.on{color:var(--acc);}
+.ni{font-size:20px;line-height:1;}
+.nl{font-size:9px;text-transform:uppercase;letter-spacing:.06em;}
+.pg{display:none;padding:16px 16px 32px;}
+.pg.on{display:block;}
+.card{background:var(--s1);border:1px solid var(--brd);border-radius:16px;padding:16px;margin-bottom:12px;}
+.ct{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:300;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.pbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(197,241,53,.1);border:1px solid rgba(197,241,53,.25);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--acc);margin-bottom:14px;font-family:'DM Mono',monospace;}
+.pdot{width:6px;height:6px;background:var(--acc);border-radius:50%;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.pw{margin-bottom:16px;}
+.pm{display:flex;justify-content:space-between;font-size:11px;color:var(--dim);margin-bottom:6px;font-family:'DM Mono',monospace;}
+.pb{height:3px;background:var(--s3);border-radius:2px;}
+.pf{height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:2px;transition:width 1s ease;}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.sbox{background:var(--s2);border-radius:12px;padding:12px;}
+.sv{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:700;color:var(--acc);line-height:1;}
+.sl{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
+.pril{display:flex;flex-direction:column;gap:8px;}
+.pri{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:var(--s2);border-radius:10px;border-left:3px solid transparent;}
+.pri.hi{border-color:var(--red);}
+.pri.me{border-color:var(--amb);}
+.pri.lo{border-color:var(--acc);}
+.pnum{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);min-width:18px;margin-top:1px;}
+.ptxt{font-size:13px;color:var(--txt);line-height:1.5;}
+.ptag{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;}
+.wkh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.wkt{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:var(--acc);}
+.wks{font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:2px;}
+.gwb{background:var(--acc);color:var(--bg);border:none;border-radius:10px;padding:8px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;}
+.gwb:disabled{opacity:.5;}
+.dr{background:var(--s1);border:1px solid var(--brd);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;}
+.dr.tod{border-color:rgba(197,241,53,.4);background:rgba(197,241,53,.04);}
+.dr.rst{opacity:.55;}
+.dl{min-width:36px;text-align:center;}
+.dln{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;color:var(--dim);}
+.dld{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:2px;}
+.tdot{width:6px;height:6px;background:var(--acc);border-radius:50%;margin:4px auto 0;}
+.dc{flex:1;}
+.bdg{font-size:10px;padding:2px 8px;border-radius:20px;font-family:'DM Mono',monospace;display:inline-block;margin-bottom:4px;}
+.be{background:rgba(92,184,255,.12);color:var(--blue);}
+.bt{background:rgba(255,184,48,.12);color:var(--amb);}
+.bi{background:rgba(255,92,92,.12);color:var(--red);}
+.bl{background:rgba(197,241,53,.12);color:var(--acc);}
+.br{background:rgba(74,82,64,.3);color:var(--dim);}
+.bs{background:rgba(143,212,42,.08);color:var(--acc2);}
+.ddsc{font-size:13px;color:var(--txt);line-height:1.5;}
+.dkm{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);margin-top:3px;}
+.spn{width:20px;height:20px;border:2px solid var(--s3);border-top-color:var(--acc);border-radius:50%;animation:sp .8s linear infinite;margin:0 auto;}
+@keyframes sp{to{transform:rotate(360deg)}}
+.lf{background:var(--s1);border:1px solid var(--brd);border-radius:16px;padding:16px;margin-bottom:16px;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.fr.full{grid-template-columns:1fr;}
+.fg label{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px;font-family:'DM Mono',monospace;}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 12px;border-radius:10px;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;}
+.fg textarea{min-height:64px;resize:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--acc);}
+.svbtn{width:100%;padding:14px;background:var(--acc);color:var(--bg);border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px;}
+.les{display:flex;flex-direction:column;gap:8px;}
+.le{background:var(--s1);border:1px solid var(--brd);border-radius:12px;padding:12px 14px;}
+.et{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.edt{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);}
+.edel{background:none;border:none;color:var(--dim);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;}
+.ests{display:flex;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+.est .ev{color:var(--acc);font-size:15px;font-weight:500;display:block;font-family:'DM Mono',monospace;}
+.est .el{color:var(--dim);font-size:9px;text-transform:uppercase;}
+.enote{font-size:12px;color:var(--dim);line-height:1.5;font-style:italic;}
+.empty{text-align:center;padding:32px 0;color:var(--dim);font-size:14px;}
+.gc{background:var(--s1);border:1px solid var(--brd);border-radius:16px;padding:16px;margin-bottom:12px;}
+.sr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.sg2 label{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px;}
+.sg2 select,.sg2 input{width:100%;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:13px;padding:9px 12px;border-radius:10px;outline:none;appearance:none;-webkit-appearance:none;transition:border-color .2s;}
+.sg2 select:focus,.sg2 input:focus{border-color:var(--acc);}
+.bbn{width:100%;padding:14px;background:var(--acc);color:var(--bg);border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.bbn:disabled{opacity:.5;}
+.wo{background:var(--s2);border:1px solid var(--brd);border-radius:12px;padding:14px;margin-top:10px;display:none;}
+.wo.show{display:block;}
+.woh{display:flex;justify-content:space-between;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--brd);}
+.wotxt{font-size:13px;line-height:1.85;color:var(--txt);white-space:pre-wrap;}
+.cb{background:var(--s1);border:1px solid var(--brd);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 200px);max-height:560px;}
+.cm{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;-webkit-overflow-scrolling:touch;}
+.cm::-webkit-scrollbar{display:none;}
+.msg{max-width:88%;}
+.msg.ai{align-self:flex-start;}
+.msg.usr{align-self:flex-end;}
+.bub{padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.65;}
+.msg.ai .bub{background:var(--s2);color:var(--txt);border-bottom-left-radius:4px;}
+.msg.usr .bub{background:var(--acc);color:var(--bg);border-bottom-right-radius:4px;}
+.mt{font-size:9px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:3px;padding:0 4px;}
+.msg.usr .mt{text-align:right;}
+.qqs{display:flex;gap:6px;overflow-x:auto;padding:8px 14px;-webkit-overflow-scrolling:touch;}
+.qqs::-webkit-scrollbar{display:none;}
+.qb{white-space:nowrap;font-size:11px;padding:6px 12px;background:var(--s2);border:1px solid var(--brd);color:var(--dim);border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0;}
+.cir{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--brd);}
+.ci{flex:1;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;border-radius:22px;outline:none;}
+.ci:focus{border-color:rgba(197,241,53,.4);}
+.sndbtn{width:40px;height:40px;background:var(--acc);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.typing{display:flex;gap:4px;align-items:center;}
+.typing span{width:5px;height:5px;background:var(--dim);border-radius:50%;animation:bo 1.2s ease infinite;}
+.typing span:nth-child(2){animation-delay:.2s;}
+.typing span:nth-child(3){animation-delay:.4s;}
+@keyframes bo{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="hdr">
   <div class="hdr-row">
-    <div class="app-name">MARATHON · NASTYA</div>
-    <div class="hdr-date" id="hdrDate"></div>
+    <div class="aname">MARATHON · NASTYA</div>
+    <div class="hdate" id="hdate"></div>
   </div>
-  <div class="countdown-strip">
-    <div class="cd-block"><div class="cd-num" id="cdDays">—</div><div class="cd-unit">днів</div></div>
-    <div class="cd-sep">:</div>
-    <div class="cd-block"><div class="cd-num" id="cdHours">—</div><div class="cd-unit">годин</div></div>
-    <div class="cd-sep">:</div>
-    <div class="cd-block"><div class="cd-num" id="cdMins">—</div><div class="cd-unit">хвилин</div></div>
-    <div class="marathon-date">
-      <strong>27.09.2026</strong>
-      Варшава
-    </div>
+  <div class="cds">
+    <div class="cdb"><div class="cdn" id="cdD">—</div><div class="cdu">днів</div></div>
+    <div class="cdsp">:</div>
+    <div class="cdb"><div class="cdn" id="cdH">—</div><div class="cdu">год</div></div>
+    <div class="cdsp">:</div>
+    <div class="cdb"><div class="cdn" id="cdM">—</div><div class="cdu">хв</div></div>
+    <div class="mdt"><strong>27.09.2026</strong>Варшава</div>
   </div>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
-  <!-- PAGE: HOME -->
-  <div class="page active" id="page-home">
-
-    <div class="phase-badge"><span class="phase-dot"></span> Фаза розвитку · тиждень <span id="currentWeekNum">—</span></div>
-
-    <div class="prog-wrap">
-      <div class="prog-meta">
-        <span>Підготовка</span><span id="progPct">—%</span>
-      </div>
-      <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+  <div class="pg on" id="pg-home">
+    <div class="pbadge"><span class="pdot"></span>Фаза розвитку · тиждень <span id="wkNum">—</span></div>
+    <div class="pw">
+      <div class="pm"><span>Підготовка</span><span id="ppct">—%</span></div>
+      <div class="pb"><div class="pf" id="pfill" style="width:0%"></div></div>
     </div>
-
-    <div class="stats-grid">
-      <div class="stat-box"><div class="stat-val" id="statKm">189</div><div class="stat-lbl">км база зі Strava</div></div>
-      <div class="stat-box"><div class="stat-val" id="statWeeks">—</div><div class="stat-lbl">тижнів до старту</div></div>
-      <div class="stat-box"><div class="stat-val" id="statLogKm">0</div><div class="stat-lbl">км у щоденнику</div></div>
-      <div class="stat-box"><div class="stat-val" id="statRuns">0</div><div class="stat-lbl">пробіжок записано</div></div>
+    <div class="sg">
+      <div class="sbox"><div class="sv">189</div><div class="sl">км база Strava</div></div>
+      <div class="sbox"><div class="sv" id="wkleft">—</div><div class="sl">тижнів до старту</div></div>
+      <div class="sbox"><div class="sv" id="logkms">0</div><div class="sl">км у щоденнику</div></div>
+      <div class="sbox"><div class="sv" id="runsc">0</div><div class="sl">пробіжок записано</div></div>
     </div>
-
     <div class="card">
-      <div class="card-title">Пріоритети цього тижня</div>
-      <div class="priority-list" id="priorityList">
-        <div class="priority-item high">
-          <span class="pri-num">01</span>
-          <div><div class="pri-text">Довга пробіжка 22–24 км у суботу</div><div class="pri-tag">темп 7:30–8:00 / пульс Z2</div></div>
-        </div>
-        <div class="priority-item med">
-          <span class="pri-num">02</span>
-          <div><div class="pri-text">Темпове тренування 10 км у середу</div><div class="pri-tag">темп 6:30–6:45 / пульс Z3</div></div>
-        </div>
-        <div class="priority-item low">
-          <span class="pri-num">03</span>
-          <div><div class="pri-text">2 легких відновлювальних пробіжки</div><div class="pri-tag">пульс не вище 145 уд/хв</div></div>
-        </div>
-        <div class="priority-item low">
-          <span class="pri-num">04</span>
-          <div><div class="pri-text">Силове тренування для ніг та кора</div><div class="pri-tag">30–40 хвилин</div></div>
-        </div>
+      <div class="ct">Пріоритети цього тижня</div>
+      <div class="pril">
+        <div class="pri hi"><span class="pnum">01</span><div><div class="ptxt">Довга пробіжка 22–24 км у суботу</div><div class="ptag">темп 7:30–8:00 / пульс Z2</div></div></div>
+        <div class="pri me"><span class="pnum">02</span><div><div class="ptxt">Темповий біг 10 км у середу</div><div class="ptag">темп 6:30–6:45 / пульс Z3</div></div></div>
+        <div class="pri lo"><span class="pnum">03</span><div><div class="ptxt">2 легких відновлювальних пробіжки</div><div class="ptag">пульс не вище 145 уд/хв</div></div></div>
+        <div class="pri lo"><span class="pnum">04</span><div><div class="ptxt">Силові для ніг і кора</div><div class="ptag">30–40 хвилин</div></div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-title">Де ти в плані</div>
-      <div style="display:flex;flex-direction:column;gap:6px;" id="phaseTimeline">
-        <!-- filled by JS -->
-      </div>
+      <div class="ct">Де ти в плані</div>
+      <div id="phtl"></div>
     </div>
-
   </div>
 
-  <!-- PAGE: PLAN -->
-  <div class="page" id="page-plan">
-    <div class="week-header">
-      <div>
-        <div class="week-title" id="planWeekTitle">Тиждень —</div>
-        <div class="week-sub" id="planWeekRange"></div>
-      </div>
-      <button class="gen-week-btn" id="genWeekBtn">
-        <span id="gwTxt">AI план</span>
-        <span id="gwSpin" style="display:none"><div class="spin" style="width:14px;height:14px;border-width:2px;margin:0"></div></span>
+  <div class="pg" id="pg-plan">
+    <div class="wkh">
+      <div><div class="wkt" id="plantitle">Тиждень —</div><div class="wks" id="planrange"></div></div>
+      <button class="gwb" id="gwbtn">
+        <span id="gwtxt">AI план</span>
+        <span id="gwspn" style="display:none"><div class="spn" style="width:14px;height:14px;border-top-color:var(--bg)"></div></span>
       </button>
     </div>
-    <div id="weekDays"></div>
-    <div id="weekPlanDetail"></div>
+    <div id="wkdays"></div>
+    <div id="wkdetail"></div>
   </div>
 
-  <!-- PAGE: LOG -->
-  <div class="page" id="page-log">
-    <div class="log-form">
-      <div class="log-form-title">Записати тренування</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Дата</label>
-          <input type="date" id="logDate">
-        </div>
-        <div class="form-group">
-          <label>Тип</label>
-          <select id="logType">
+  <div class="pg" id="pg-log">
+    <div class="lf">
+      <div class="ct">Записати тренування</div>
+      <div class="fr">
+        <div class="fg"><label>Дата</label><input type="date" id="ldate"></div>
+        <div class="fg"><label>Тип</label>
+          <select id="ltype">
             <option value="easy">Легкий біг</option>
             <option value="tempo">Темповий</option>
             <option value="interval">Інтервали</option>
@@ -325,24 +207,14 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
           </select>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Дистанція (км)</label>
-          <input type="number" id="logKm" placeholder="0.0" step="0.1" min="0">
-        </div>
-        <div class="form-group">
-          <label>Темп (хв:сек)</label>
-          <input type="text" id="logPace" placeholder="7:15">
-        </div>
+      <div class="fr">
+        <div class="fg"><label>Дистанція (км)</label><input type="number" id="lkm" placeholder="0.0" step="0.1" min="0"></div>
+        <div class="fg"><label>Темп (хв:сек)</label><input type="text" id="lpace" placeholder="7:15"></div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Пульс сер.</label>
-          <input type="number" id="logHR" placeholder="150" min="60" max="220">
-        </div>
-        <div class="form-group">
-          <label>Самопочуття</label>
-          <select id="logFeel">
+      <div class="fr">
+        <div class="fg"><label>Пульс сер.</label><input type="number" id="lhr" placeholder="150"></div>
+        <div class="fg"><label>Самопочуття</label>
+          <select id="lfeel">
             <option value="5">🔥 Відмінно</option>
             <option value="4">💪 Добре</option>
             <option value="3" selected>😐 Нормально</option>
@@ -351,29 +223,21 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
           </select>
         </div>
       </div>
-      <div class="form-row full">
-        <div class="form-group">
-          <label>Нотатка</label>
-          <textarea id="logNote" placeholder="Як пройшло тренування?"></textarea>
-        </div>
+      <div class="fr full">
+        <div class="fg"><label>Нотатка</label><textarea id="lnote" placeholder="Як пройшло?"></textarea></div>
       </div>
-      <button class="save-btn" id="saveBtn">Зберегти тренування</button>
+      <button class="svbtn" id="savebtn">Зберегти тренування</button>
     </div>
-
-    <div class="card-title" style="padding:0 4px;margin-bottom:10px;">Історія тренувань</div>
-    <div class="log-entries" id="logEntries">
-      <div class="empty-log">Ще немає записів. Додай перше тренування! 🏃‍♀️</div>
-    </div>
+    <div class="ct" style="padding:0 4px;margin-bottom:10px;">Історія</div>
+    <div class="les" id="loglist"><div class="empty">Ще немає записів 🏃‍♀️</div></div>
   </div>
 
-  <!-- PAGE: GENERATE -->
-  <div class="page" id="page-gen">
-    <div class="gen-card">
-      <div class="gen-card-title">Персональне тренування</div>
-      <div class="sel-row">
-        <div class="sel-group">
-          <label>Тип</label>
-          <select id="gType">
+  <div class="pg" id="pg-gen">
+    <div class="gc">
+      <div class="ct">Персональне тренування</div>
+      <div class="sr">
+        <div class="sg2"><label>Тип</label>
+          <select id="gtype">
             <option value="easy">Легкий біг</option>
             <option value="tempo">Темповий</option>
             <option value="interval">Інтервали</option>
@@ -382,24 +246,19 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
             <option value="hills">Горки</option>
           </select>
         </div>
-        <div class="sel-group">
-          <label>Час (хв)</label>
-          <input type="number" id="gTime" value="60" min="20" max="180">
-        </div>
+        <div class="sg2"><label>Час (хв)</label><input type="number" id="gtime" value="60" min="20" max="180"></div>
       </div>
-      <div class="sel-row">
-        <div class="sel-group">
-          <label>Самопочуття</label>
-          <select id="gFeel">
+      <div class="sr">
+        <div class="sg2"><label>Самопочуття</label>
+          <select id="gfeel">
             <option value="great">Відмінно</option>
             <option value="good" selected>Добре</option>
             <option value="tired">Втомлена</option>
             <option value="sore">Болять м'язи</option>
           </select>
         </div>
-        <div class="sel-group">
-          <label>Де бігти</label>
-          <select id="gPlace">
+        <div class="sg2"><label>Місце</label>
+          <select id="gplace">
             <option value="lazienki">Łazienki</option>
             <option value="mokotow">Pole Mokotowskie</option>
             <option value="vistula">Набережна Вісли</option>
@@ -407,40 +266,39 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
           </select>
         </div>
       </div>
-      <button class="big-btn" id="genBtn">
-        <span id="genTxt">Згенерувати тренування</span>
-        <span id="genSpin" style="display:none"><div class="spin" style="width:16px;height:16px;border-width:2px;margin:0;border-top-color:var(--bg)"></div></span>
+      <button class="bbn" id="genbtn">
+        <span id="gentxt">Згенерувати тренування</span>
+        <span id="genspn" style="display:none"><div class="spn" style="width:16px;height:16px;border-top-color:var(--bg)"></div></span>
       </button>
     </div>
-    <div class="workout-out" id="wOut">
-      <div class="wo-head">
-        <span class="day-type-badge" id="wBadge">—</span>
-        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--dim)" id="wMeta">—</span>
+    <div class="wo" id="wout">
+      <div class="woh">
+        <span class="bdg" id="wbadge">—</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--dim)" id="wmeta">—</span>
       </div>
-      <div class="wo-text" id="wText"></div>
+      <div class="wotxt" id="wtxt"></div>
     </div>
   </div>
 
-  <!-- PAGE: COACH -->
-  <div class="page" id="page-coach">
-    <div class="chat-box">
-      <div class="chat-msgs" id="chatMsgs">
+  <div class="pg" id="pg-coach">
+    <div class="cb">
+      <div class="cm" id="chatmsgs">
         <div class="msg ai">
-          <div class="bubble">Привіт, Настю! 👋 Я твій AI тренер. Бачу що ти серйозно готуєшся до марафону 27 вересня — це чудово! У тебе міцна база і реальні шанси фінішувати. Про що хочеш поговорити?</div>
-          <div class="msg-time">Тренер</div>
+          <div class="bub">Привіт, Настю! 👋 Я твій AI тренер. 23 тижні до марафону — реально фінішувати! Про що хочеш поговорити?</div>
+          <div class="mt">Тренер</div>
         </div>
       </div>
-      <div class="quick-qs">
-        <button class="qbtn" data-q="Який цільовий час фінішу для мене?">Цільовий час?</button>
-        <button class="qbtn" data-q="Що їсти перед довгою?">Харчування?</button>
-        <button class="qbtn" data-q="Як уникнути травм?">Травми?</button>
-        <button class="qbtn" data-q="Як тренувати пульс Z2?">Пульс Z2?</button>
-        <button class="qbtn" data-q="Що взяти на марафон?">На старт?</button>
+      <div class="qqs">
+        <button class="qb" data-q="Який цільовий час фінішу для мене?">Цільовий час?</button>
+        <button class="qb" data-q="Що їсти перед довгою?">Харчування?</button>
+        <button class="qb" data-q="Як уникнути травм?">Травми?</button>
+        <button class="qb" data-q="Як тренувати пульс Z2?">Пульс Z2?</button>
+        <button class="qb" data-q="Що взяти на марафон?">На старт?</button>
       </div>
-      <div class="chat-input-row">
-        <input class="chat-inp" id="chatInp" placeholder="Запитай тренера...">
-        <button class="send-btn" id="sendBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0a0d08" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <div class="cir">
+        <input class="ci" id="cinp" placeholder="Запитай тренера...">
+        <button class="sndbtn" id="sndbtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0a0d08" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </div>
     </div>
@@ -448,417 +306,291 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
 
 </div>
 
-<!-- NAV -->
 <nav class="nav">
-  <button class="nav-btn active" data-page="home">
-    <span class="nav-icon">🏠</span><span class="nav-label">Головна</span>
-  </button>
-  <button class="nav-btn" data-page="plan">
-    <span class="nav-icon">📅</span><span class="nav-label">План</span>
-  </button>
-  <button class="nav-btn" data-page="log">
-    <span class="nav-icon">📝</span><span class="nav-label">Щоденник</span>
-  </button>
-  <button class="nav-btn" data-page="gen">
-    <span class="nav-icon">⚡</span><span class="nav-label">Тренування</span>
-  </button>
-  <button class="nav-btn" data-page="coach">
-    <span class="nav-icon">💬</span><span class="nav-label">Тренер</span>
-  </button>
+  <button class="nb on" data-p="home"><span class="ni">🏠</span><span class="nl">Головна</span></button>
+  <button class="nb" data-p="plan"><span class="ni">📅</span><span class="nl">План</span></button>
+  <button class="nb" data-p="log"><span class="ni">📝</span><span class="nl">Щоденник</span></button>
+  <button class="nb" data-p="gen"><span class="ni">⚡</span><span class="nl">Тренування</span></button>
+  <button class="nb" data-p="coach"><span class="ni">💬</span><span class="nl">Тренер</span></button>
 </nav>
 
 <script>
-// ── CONSTANTS ──
-const MARATHON = new Date('2026-09-27T09:00:00');
-const PLAN_START = new Date('2026-04-16');
-const TOTAL_WEEKS = 23;
-const ATHLETE = 'Анастасія, жінка, 29 р, Варшава. База 189 км зі Strava, макс дистанція 21.2 км, середній темп 7:15 хв/км, сер пульс 153 уд/хв. Марафон 27.09.2026.';
+(function() {
+  var MARATHON = new Date('2026-09-27T09:00:00');
+  var PLAN_START = new Date('2026-04-16');
+  var ATHLETE = 'Анастасія, жінка, 29 р, Варшава. База 189 км, макс 21.2 км, темп 7:15, пульс 153. Марафон 27.09.2026.';
+  var MONTHS = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var chatHist = [];
 
-// ── STORAGE (with fallback) ──
-const store = {
-  _mem: {},
-  get(k) { try { return localStorage.getItem(k); } catch(e) { return this._mem[k]||null; } },
-  set(k,v) { try { localStorage.setItem(k,v); } catch(e) { this._mem[k]=v; } },
-};
+  function stGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function stSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function getKey(){return stGet('mk')||'';}
+  function setKey(k){stSet('mk',k);}
 
-// ── API KEY ──
-function getApiKey() { return store.get('mara_api_key') || ''; }
-function saveApiKey(k) { store.set('mara_api_key', k); }
-
-// ── NAVIGATION ──
-function goPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  document.querySelector('[data-page="'+id+'"]').classList.add('active');
-  document.querySelector('.content').scrollTop = 0;
-}
-document.querySelectorAll('.nav-btn').forEach(btn => {
-  btn.addEventListener('click', function() { goPage(this.dataset.page); });
-});
-
-// ── COUNTDOWN (live) ──
-function updateCountdown() {
-  const now = new Date();
-  const diff = MARATHON - now;
-  if (diff <= 0) {
-    document.getElementById('cdDays').textContent = '🏁';
-    document.getElementById('cdHours').textContent = '00';
-    document.getElementById('cdMins').textContent = '00';
-    return;
-  }
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff % 86400000) / 3600000);
-  const mins = Math.floor((diff % 3600000) / 60000);
-  document.getElementById('cdDays').textContent = String(days).padStart(3,'0');
-  document.getElementById('cdHours').textContent = String(hours).padStart(2,'0');
-  document.getElementById('cdMins').textContent = String(mins).padStart(2,'0');
-}
-updateCountdown();
-setInterval(updateCountdown, 30000);
-
-// ── HEADER DATE ──
-function updateDate() {
-  const d = new Date();
-  const opts = { weekday:'long', day:'numeric', month:'long' };
-  document.getElementById('hdrDate').textContent = d.toLocaleDateString('uk-UA', opts);
-}
-updateDate();
-
-// ── PROGRESS & WEEKS ──
-function updateProgress() {
-  const now = new Date();
-  const elapsed = Math.max(0, now - PLAN_START);
-  const total = MARATHON - PLAN_START;
-  const pct = Math.min(100, Math.round((elapsed / total) * 100));
-  const weekNum = Math.max(1, Math.min(TOTAL_WEEKS, Math.ceil(elapsed / 604800000)));
-  const weeksLeft = Math.ceil((MARATHON - now) / 604800000);
-  document.getElementById('progPct').textContent = pct + '%';
-  setTimeout(() => document.getElementById('progFill').style.width = pct + '%', 200);
-  document.getElementById('currentWeekNum').textContent = weekNum;
-  document.getElementById('statWeeks').textContent = weeksLeft;
-  document.getElementById('planWeekTitle').textContent = 'Тиждень ' + weekNum + ' / ' + TOTAL_WEEKS;
-
-  // week range
-  const wStart = new Date(PLAN_START.getTime() + (weekNum - 1) * 604800000);
-  const wEnd = new Date(wStart.getTime() + 6 * 86400000);
-  const fmt = d => d.toLocaleDateString('uk-UA', { day:'numeric', month:'short' });
-  document.getElementById('planWeekRange').textContent = fmt(wStart) + ' – ' + fmt(wEnd);
-
-  // phase timeline
-  const phases = [
-    { name:'База', weeks:'1–4', phase:1, max:4 },
-    { name:'Розвиток', weeks:'5–10', phase:2, max:10 },
-    { name:'Пік', weeks:'11–17', phase:3, max:17 },
-    { name:'Загострення', weeks:'18–21', phase:4, max:21 },
-    { name:'Тейпер', weeks:'22–23', phase:5, max:23 },
-  ];
-  const currentPhase = phases.find(p => weekNum <= p.max) || phases[4];
-  const tl = document.getElementById('phaseTimeline');
-  tl.innerHTML = phases.map(p => {
-    const isCurrent = p.phase === currentPhase.phase;
-    const isDone = weekNum > p.max;
-    return `<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:${isCurrent ? 'rgba(197,241,53,0.08)' : 'transparent'};border:1px solid ${isCurrent ? 'rgba(197,241,53,0.3)' : 'transparent'}">
-      <div style="width:8px;height:8px;border-radius:50%;background:${isDone ? 'var(--dim)' : isCurrent ? 'var(--acc)' : 'var(--s3)';};border:1px solid ${isCurrent ? 'var(--acc)' : isDone ? 'var(--dim)' : 'var(--s3)'}"></div>
-      <div style="flex:1;font-size:13px;color:${isCurrent ? 'var(--txt)' : isDone ? 'var(--dim)' : 'var(--dim)'}">${p.name} <span style="font-size:11px;color:var(--dim);font-family:'DM Mono',monospace">тижні ${p.weeks}</span></div>
-      ${isCurrent ? '<span style="font-size:10px;color:var(--acc);font-family:\'DM Mono\',monospace">← зараз</span>' : ''}
-    </div>`;
-  }).join('');
-
-  // week days skeleton
-  buildWeekDays(weekNum);
-  return weekNum;
-}
-updateProgress();
-
-// ── WEEK DAYS ──
-function buildWeekDays(weekNum) {
-  const dayNames = ['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
-  const today = new Date();
-  today.setHours(0,0,0,0);
-
-  const weekStart = new Date(PLAN_START.getTime() + (weekNum - 1) * 604800000);
-  // align to Monday
-  const dow = weekStart.getDay();
-  const diff = (dow === 0 ? -6 : 1 - dow);
-  weekStart.setDate(weekStart.getDate() + diff);
-
-  const defaultPlan = [
-    { type:'easy', badge:'badge-easy', label:'Легкий біг', km:'8 км', desc:'Відновлювальний темп 7:30–8:00, пульс Z1-Z2' },
-    { type:'strength', badge:'badge-strength', label:'Силові', km:'', desc:'Кор, ноги, глютеус — 35 хв' },
-    { type:'tempo', badge:'badge-tempo', label:'Темповий', km:'10 км', desc:'Темп 6:30–6:45, пульс Z3. Łazienki.' },
-    { type:'rest', badge:'badge-rest', label:'Відпочинок', km:'', desc:'Стретчинг, пінний ролик, сон' },
-    { type:'easy', badge:'badge-easy', label:'Легкий', km:'6 км', desc:'Вільний темп, насолода від бігу' },
-    { type:'long', badge:'badge-long', label:'Довга', km:'22 км', desc:'Темп 7:30–8:00, пульс Z2. Набережна Вісли.' },
-    { type:'easy', badge:'badge-easy', label:'Відновлення', km:'4 км', desc:'Дуже повільно, пульс <140' },
-  ];
-
-  const container = document.getElementById('weekDays');
-  container.innerHTML = defaultPlan.map((d, i) => {
-    const date = new Date(weekStart.getTime() + i * 86400000);
-    const isToday = date.getTime() === today.getTime();
-    const fmt = date.toLocaleDateString('uk-UA', { day:'numeric', month:'short' });
-    return `<div class="day-row ${d.type === 'rest' ? 'rest-day' : ''} ${isToday ? 'today' : ''}">
-      <div class="day-col-left">
-        <div class="day-name-lbl">${dayNames[i]}</div>
-        <div class="day-date-lbl">${fmt}</div>
-        ${isToday ? '<div class="today-dot"></div>' : ''}
-      </div>
-      <div class="day-col-right">
-        <span class="day-type-badge ${d.badge}">${d.label}</span>
-        ${d.km ? `<div class="day-km">${d.km}</div>` : ''}
-        <div class="day-desc">${d.desc}</div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-// ── GENERATE WEEK PLAN ──
-async function generateWeekPlan() {
-  const btn = document.getElementById('genWeekBtn');
-  btn.disabled = true;
-  document.getElementById('gwTxt').style.display = 'none';
-  document.getElementById('gwSpin').style.display = 'flex';
-
-  const weekNum = parseInt(document.getElementById('currentWeekNum').textContent) || 6;
-
-  const detail = document.getElementById('weekPlanDetail');
-  detail.innerHTML = '<div class="plan-loading"><div class="spin"></div><div style="font-size:13px;color:var(--dim)">Будую план...</div></div>';
-
-  const sys = `Ти досвідчений марафонський тренер. Відповідай ТІЛЬКИ українською. ${ATHLETE} Зараз тиждень ${weekNum} з 23.`;
-  const prompt = `Склади детальний план на тиждень ${weekNum} (${getPhase(weekNum)}).
-Формат: кожен день (Пн-Нд) окремим блоком з:
-• Тип тренування + дистанція/тривалість
-• Конкретний план (темп хв/км, пульсова зона, відрізки)
-• Місце у Варшаві (Łazienki, Pole Mokotowskie, набережна Вісли)
-• Коротка порада
-Загальний об'єм тижня: ${getTargetKm(weekNum)} км.`;
-
-  try {
-    const text = await callClaude([{ role:'user', content:prompt }], sys);
-    detail.innerHTML = `<div class="card" style="margin-top:0"><div class="wo-text">${text.replace(/\n/g,'<br>')}</div></div>`;
-  } catch(e) {
-    detail.innerHTML = '<div class="card"><div style="color:var(--dim);font-size:13px;">Помилка. Перевір з\'єднання.</div></div>';
-  }
-
-  btn.disabled = false;
-  document.getElementById('gwTxt').style.display = '';
-  document.getElementById('gwSpin').style.display = 'none';
-}
-
-function getPhase(w) {
-  if (w <= 4) return 'фаза бази, 40-55 км';
-  if (w <= 10) return 'фаза розвитку, 55-70 км';
-  if (w <= 17) return 'пікова фаза, 70-85 км';
-  if (w <= 21) return 'загострення, 55-65 км';
-  return 'тейпер, 30-35 км';
-}
-function getTargetKm(w) {
-  if (w <= 4) return '40–50';
-  if (w <= 10) return '55–65';
-  if (w <= 17) return '70–80';
-  if (w <= 21) return '55–65';
-  return '30–35';
-}
-
-// ── WORKOUT LOG ──
-function getLog() { try { return JSON.parse(localStorage.getItem('marathon_log') || '[]'); } catch(e) { return []; } }
-function saveLog(arr) { localStorage.setItem('marathon_log', JSON.stringify(arr)); }
-
-function updateLogStats() {
-  const log = getLog().filter(e => e.type !== 'rest' && e.type !== 'strength');
-  const km = log.reduce((s, e) => s + (parseFloat(e.km) || 0), 0);
-  document.getElementById('statLogKm').textContent = Math.round(km);
-  document.getElementById('statRuns').textContent = log.length;
-}
-
-function renderLog() {
-  const log = getLog().slice().reverse();
-  const container = document.getElementById('logEntries');
-  if (!log.length) { container.innerHTML = '<div class="empty-log">Ще немає записів. Додай перше тренування! 🏃‍♀️</div>'; return; }
-  const typeLabels = { easy:'Легкий', tempo:'Темповий', interval:'Інтервали', long:'Довга', strength:'Силові', rest:'Відпочинок' };
-  const feelEmoji = { 5:'🔥', 4:'💪', 3:'😐', 2:'😴', 1:'😣' };
-  const feelColors = { 5:'#c5f135', 4:'#8fd42a', 3:'#ffb830', 2:'#ff9a3c', 1:'#ff5c5c' };
-  container.innerHTML = log.map((e, i) => `
-    <div class="log-entry">
-      <div class="entry-top">
-        <span class="day-type-badge badge-${e.type === 'easy' ? 'easy' : e.type === 'tempo' ? 'tempo' : e.type === 'interval' ? 'interval' : e.type === 'long' ? 'long' : 'rest'}">${typeLabels[e.type] || e.type}</span>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span class="entry-date">${e.date}</span>
-          <button class="entry-delete" onclick="deleteEntry(${log.length - 1 - i})">×</button>
-        </div>
-      </div>
-      <div class="entry-stats">
-        ${e.km ? `<div class="entry-stat"><span class="val">${e.km}</span><span class="lbl">км</span></div>` : ''}
-        ${e.pace ? `<div class="entry-stat"><span class="val">${e.pace}</span><span class="lbl">темп</span></div>` : ''}
-        ${e.hr ? `<div class="entry-stat"><span class="val">${e.hr}</span><span class="lbl">уд/хв</span></div>` : ''}
-        ${e.feel ? `<div class="entry-stat"><span class="val">${feelEmoji[e.feel]}</span><span class="lbl">настрій</span></div>` : ''}
-      </div>
-      ${e.note ? `<div class="entry-note">"${e.note}"</div>` : ''}
-    </div>`).join('');
-}
-
-function saveWorkout() {
-  const km = document.getElementById('logKm').value;
-  const entry = {
-    id: Date.now(),
-    date: document.getElementById('logDate').value || new Date().toISOString().split('T')[0],
-    type: document.getElementById('logType').value,
-    km: km,
-    pace: document.getElementById('logPace').value,
-    hr: document.getElementById('logHR').value,
-    feel: document.getElementById('logFeel').value,
-    note: document.getElementById('logNote').value,
-  };
-  const log = getLog();
-  log.push(entry);
-  saveLog(log);
-  renderLog();
-  updateLogStats();
-  document.getElementById('logKm').value = '';
-  document.getElementById('logPace').value = '';
-  document.getElementById('logHR').value = '';
-  document.getElementById('logNote').value = '';
-  document.getElementById('logFeel').value = '3';
-}
-
-function deleteEntry(idx) {
-  const log = getLog();
-  log.splice(idx, 1);
-  saveLog(log);
-  renderLog();
-  updateLogStats();
-}
-
-// Set today's date as default
-document.getElementById('logDate').value = new Date().toISOString().split('T')[0];
-
-renderLog();
-updateLogStats();
-
-// ── API ──
-async function callClaude(messages, sys) {
-  const key = getApiKey();
-  if (!key) {
-    const k = prompt('Введи свій Anthropic API ключ (sk-ant-...)\nОтримай безкоштовно на console.anthropic.com');
-    if (!k) throw new Error('Немає ключа');
-    saveApiKey(k.trim());
-  }
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': getApiKey(),
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: sys, messages })
+  // NAV
+  document.querySelectorAll('.nb').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = this.getAttribute('data-p');
+      document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+      document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});
+      document.getElementById('pg-'+id).classList.add('on');
+      this.classList.add('on');
+      document.querySelector('.content').scrollTop = 0;
+    });
   });
-  const data = await res.json();
-  if (data.error) throw new Error(data.error.message);
-  return data.content?.[0]?.text || '—';
-}
 
-// ── EVENT LISTENERS ──
-document.getElementById('genWeekBtn').addEventListener('click', generateWeekPlan);
-document.getElementById('saveBtn').addEventListener('click', saveWorkout);
-document.getElementById('genBtn').addEventListener('click', generateWorkout);
-document.getElementById('sendBtn').addEventListener('click', sendMsg);
-document.getElementById('chatInp').addEventListener('keydown', function(e) { if(e.key==='Enter') sendMsg(); });
-document.querySelectorAll('.qbtn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.getElementById('chatInp').value = this.dataset.q;
-    sendMsg();
+  // COUNTDOWN
+  function tick(){
+    var diff = MARATHON - new Date();
+    if(diff<=0){document.getElementById('cdD').textContent='0';return;}
+    document.getElementById('cdD').textContent=String(Math.floor(diff/86400000)).padStart(3,'0');
+    document.getElementById('cdH').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('cdM').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick,30000);
+
+  // DATE
+  var nd=new Date();
+  document.getElementById('hdate').textContent=nd.getDate()+' '+MONTHS[nd.getMonth()];
+
+  // WEEK
+  function getWk(){
+    var e=Math.max(0,new Date()-PLAN_START);
+    return Math.max(1,Math.min(23,Math.ceil(e/604800000)));
+  }
+  function getPhase(w){
+    if(w<=4)return 'база, 40-50 км/тиждень';
+    if(w<=10)return 'розвиток, 55-65 км/тиждень';
+    if(w<=17)return 'пік, 70-80 км/тиждень';
+    if(w<=21)return 'загострення, 55-65 км/тиждень';
+    return 'тейпер, 30-35 км/тиждень';
+  }
+  function getKm(w){
+    if(w<=4)return '40-50';if(w<=10)return '55-65';
+    if(w<=17)return '70-80';if(w<=21)return '55-65';return '30-35';
+  }
+
+  function initProgress(){
+    var now=new Date();
+    var e=Math.max(0,now-PLAN_START);
+    var tot=MARATHON-PLAN_START;
+    var pct=Math.min(100,Math.round((e/tot)*100));
+    var wk=getWk();
+    var wleft=Math.ceil((MARATHON-now)/604800000);
+    document.getElementById('ppct').textContent=pct+'%';
+    setTimeout(function(){document.getElementById('pfill').style.width=pct+'%';},200);
+    document.getElementById('wkNum').textContent=wk;
+    document.getElementById('wkleft').textContent=wleft;
+    document.getElementById('plantitle').textContent='Тиждень '+wk+' / 23';
+    var ws=new Date(PLAN_START.getTime()+(wk-1)*604800000);
+    var we=new Date(ws.getTime()+6*86400000);
+    function fmt(d){return d.getDate()+' '+MONTHS[d.getMonth()];}
+    document.getElementById('planrange').textContent=fmt(ws)+' – '+fmt(we);
+    buildTimeline(wk);
+    buildWeekDays(wk);
+  }
+  initProgress();
+
+  function buildTimeline(wk){
+    var phases=[
+      {n:'База',w:'1–4',max:4},
+      {n:'Розвиток',w:'5–10',max:10},
+      {n:'Пік',w:'11–17',max:17},
+      {n:'Загострення',w:'18–21',max:21},
+      {n:'Тейпер',w:'22–23',max:23}
+    ];
+    var curMax=0;
+    for(var i=0;i<phases.length;i++){if(wk<=phases[i].max){curMax=phases[i].max;break;}}
+    var html='';
+    phases.forEach(function(p){
+      var cur=p.max===curMax;
+      var done=wk>p.max;
+      var bg=cur?'rgba(197,241,53,0.08)':'transparent';
+      var brd=cur?'rgba(197,241,53,0.3)':'transparent';
+      var dot=done?'#4a5240':cur?'#c5f135':'#1f2415';
+      var tc=cur?'#dde8c4':'#4a5240';
+      html+='<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:'+bg+';border:1px solid '+brd+';margin-bottom:4px">';
+      html+='<div style="width:8px;height:8px;border-radius:50%;background:'+dot+';flex-shrink:0"></div>';
+      html+='<div style="flex:1;font-size:13px;color:'+tc+'">'+p.n+' <span style="font-size:11px;color:#4a5240;font-family:DM Mono,monospace">тижні '+p.w+'</span></div>';
+      if(cur)html+='<span style="font-size:10px;color:#c5f135;font-family:DM Mono,monospace">← зараз</span>';
+      html+='</div>';
+    });
+    document.getElementById('phtl').innerHTML=html;
+  }
+
+  function buildWeekDays(wk){
+    var dnames=['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
+    var tod=new Date();tod.setHours(0,0,0,0);
+    var ws=new Date(PLAN_START.getTime()+(wk-1)*604800000);
+    var dow=ws.getDay();
+    ws.setDate(ws.getDate()+(dow===0?-6:1-dow));
+    var plan=[
+      {b:'be',lbl:'Легкий',km:'8 км',desc:'Темп 7:30–8:00, пульс Z1-Z2',r:0},
+      {b:'bs',lbl:'Силові',km:'',desc:'Кор, ноги, глютеус 35 хв',r:0},
+      {b:'bt',lbl:'Темповий',km:'10 км',desc:'Темп 6:30–6:45, пульс Z3 · Łazienki',r:0},
+      {b:'br',lbl:'Відпочинок',km:'',desc:'Стретчинг, ролик, сон',r:1},
+      {b:'be',lbl:'Легкий',km:'6 км',desc:'Вільний темп, насолода',r:0},
+      {b:'bl',lbl:'Довга',km:'22 км',desc:'Темп 7:30–8:00, пульс Z2 · Вісла',r:0},
+      {b:'be',lbl:'Відновлення',km:'4 км',desc:'Дуже повільно, пульс < 140',r:0}
+    ];
+    var html='';
+    plan.forEach(function(d,i){
+      var date=new Date(ws.getTime()+i*86400000);
+      var isT=date.getTime()===tod.getTime();
+      var ds=date.getDate()+' '+MONTHS[date.getMonth()];
+      html+='<div class="dr'+(d.r?' rst':'')+(isT?' tod':'')+'">';
+      html+='<div class="dl"><div class="dln">'+dnames[i]+'</div><div class="dld">'+ds+'</div>'+(isT?'<div class="tdot"></div>':'')+'</div>';
+      html+='<div class="dc"><span class="bdg '+d.b+'">'+d.lbl+'</span>';
+      if(d.km)html+='<div class="dkm">'+d.km+'</div>';
+      html+='<div class="ddsc">'+d.desc+'</div></div></div>';
+    });
+    document.getElementById('wkdays').innerHTML=html;
+  }
+
+  // LOG
+  function getLog(){try{return JSON.parse(stGet('mlog')||'[]');}catch(e){return[];}}
+  function saveLog(a){stSet('mlog',JSON.stringify(a));}
+
+  function updStats(){
+    var log=getLog().filter(function(e){return e.t!=='rest'&&e.t!=='strength';});
+    var km=log.reduce(function(s,e){return s+(parseFloat(e.km)||0);},0);
+    document.getElementById('logkms').textContent=Math.round(km);
+    document.getElementById('runsc').textContent=log.length;
+  }
+
+  function renderLog(){
+    var log=getLog().slice().reverse();
+    var c=document.getElementById('loglist');
+    if(!log.length){c.innerHTML='<div class="empty">Ще немає записів 🏃‍♀️</div>';return;}
+    var tl={easy:'Легкий',tempo:'Темповий',interval:'Інтервали',long:'Довга',strength:'Силові',rest:'Відпочинок'};
+    var fe={'5':'🔥','4':'💪','3':'😐','2':'😴','1':'😣'};
+    var bm={easy:'be',tempo:'bt',interval:'bi',long:'bl',strength:'bs',rest:'br'};
+    var html='';
+    log.forEach(function(e,i){
+      var idx=log.length-1-i;
+      html+='<div class="le"><div class="et"><span class="bdg '+(bm[e.t]||'br')+'">'+(tl[e.t]||e.t)+'</span>';
+      html+='<div style="display:flex;align-items:center;gap:8px"><span class="edt">'+e.date+'</span>';
+      html+='<button class="edel" data-idx="'+idx+'">×</button></div></div>';
+      html+='<div class="ests">';
+      if(e.km)html+='<div class="est"><span class="ev">'+e.km+'</span><span class="el">км</span></div>';
+      if(e.pace)html+='<div class="est"><span class="ev">'+e.pace+'</span><span class="el">темп</span></div>';
+      if(e.hr)html+='<div class="est"><span class="ev">'+e.hr+'</span><span class="el">уд/хв</span></div>';
+      if(e.feel)html+='<div class="est"><span class="ev">'+(fe[e.feel]||'')+'</span><span class="el">настрій</span></div>';
+      html+='</div>';
+      if(e.note)html+='<div class="enote">"'+e.note+'"</div>';
+      html+='</div>';
+    });
+    c.innerHTML=html;
+    c.querySelectorAll('.edel').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var i=parseInt(this.getAttribute('data-idx'));
+        var l=getLog();l.splice(i,1);saveLog(l);renderLog();updStats();
+      });
+    });
+  }
+
+  document.getElementById('ldate').value=new Date().toISOString().split('T')[0];
+  renderLog();updStats();
+
+  document.getElementById('savebtn').addEventListener('click',function(){
+    var e={id:Date.now(),date:document.getElementById('ldate').value,t:document.getElementById('ltype').value,km:document.getElementById('lkm').value,pace:document.getElementById('lpace').value,hr:document.getElementById('lhr').value,feel:document.getElementById('lfeel').value,note:document.getElementById('lnote').value};
+    var l=getLog();l.push(e);saveLog(l);renderLog();updStats();
+    document.getElementById('lkm').value='';document.getElementById('lpace').value='';document.getElementById('lhr').value='';document.getElementById('lnote').value='';document.getElementById('lfeel').value='3';
+    alert('Збережено! ✅');
   });
-});
 
-// ── GENERATE WORKOUT ──
-async function generateWorkout() {
-  const type = document.getElementById('gType').value;
-  const time = document.getElementById('gTime').value;
-  const feel = document.getElementById('gFeel').value;
-  const place = document.getElementById('gPlace').value;
-  const typeL = { easy:'Легкий', tempo:'Темповий', interval:'Інтервали', long:'Довга', fartlek:'Фартлек', hills:'Горки' };
-  const placeL = { lazienki:'Łazienki Królewskie', mokotow:'Pole Mokotowskie', vistula:'Набережна Вісли', any:'Будь-де у Варшаві' };
-  const feelL = { great:'відмінно', good:'добре', tired:'втомлена', sore:'болять м\'язи' };
-  const badgeMap = { easy:'badge-easy', tempo:'badge-tempo', interval:'badge-interval', long:'badge-long', fartlek:'badge-tempo', hills:'badge-tempo' };
-
-  const btn = document.getElementById('genBtn');
-  btn.disabled = true;
-  document.getElementById('genTxt').style.display = 'none';
-  document.getElementById('genSpin').style.display = 'flex';
-
-  const weekNum = parseInt(document.getElementById('currentWeekNum').textContent) || 6;
-  const sys = `Ти досвідчений марафонський тренер. Відповідай ТІЛЬКИ українською. ${ATHLETE}`;
-  const prompt = `Склади детальне тренування:
-- Тип: ${typeL[type]}
-- Час: ${time} хвилин
-- Самопочуття: ${feelL[feel]}
-- Місце: ${placeL[place]}
-- Тиждень підготовки: ${weekNum} (${getPhase(weekNum)})
-Формат:
-🎯 Назва і ціль
-🔥 Розминка (5-10 хв) — конкретні вправи і темп
-⚡ Основна частина — темп хв/км, пульсова зона, відрізки
-🧊 Заминка (5 хв)
-💡 Порада дня`;
-
-  try {
-    const text = await callClaude([{ role:'user', content:prompt }], sys);
-    const out = document.getElementById('wOut');
-    document.getElementById('wBadge').className = 'day-type-badge ' + (badgeMap[type] || 'badge-easy');
-    document.getElementById('wBadge').textContent = typeL[type];
-    document.getElementById('wMeta').textContent = time + ' хв · ' + placeL[place];
-    document.getElementById('wText').textContent = text;
-    out.classList.add('show');
-    document.querySelector('.content').scrollTop = 400;
-  } catch(e) {
-    alert('Помилка з\'єднання. Спробуй ще раз.');
+  // API
+  function claude(msgs,sys,cb){
+    var key=getKey();
+    if(!key){
+      key=prompt('Введи Anthropic API ключ (sk-ant-...)\nОтримай безкоштовно на console.anthropic.com');
+      if(!key){cb('Потрібен API ключ');return;}
+      setKey(key.trim());
+    }
+    fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:msgs})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.error){cb('Помилка: '+d.error.message);return;}
+      cb(null,d.content&&d.content[0]?d.content[0].text:'—');
+    }).catch(function(e){cb('Помилка з\'єднання');});
   }
 
-  btn.disabled = false;
-  document.getElementById('genTxt').style.display = '';
-  document.getElementById('genSpin').style.display = 'none';
-}
+  // WEEK PLAN
+  document.getElementById('gwbtn').addEventListener('click',function(){
+    var btn=this;btn.disabled=true;
+    document.getElementById('gwtxt').style.display='none';
+    document.getElementById('gwspn').style.display='flex';
+    var wk=getWk();
+    document.getElementById('wkdetail').innerHTML='<div style="text-align:center;padding:24px 0"><div class="spn"></div><div style="font-size:13px;color:var(--dim);margin-top:8px">Будую план...</div></div>';
+    var sys='Ти досвідчений марафонський тренер. Відповідай ТІЛЬКИ українською. '+ATHLETE+' Зараз тиждень '+wk+' з 23.';
+    var pr='Склади детальний план тренувань на тиждень '+wk+' ('+getPhase(wk)+'). Формат: кожен день Пн-Нд окремо з типом, дистанцією, темпом хв/км, пульсовою зоною, місцем у Варшаві та порадою. Загальний об\'єм: '+getKm(wk)+' км.';
+    claude([{role:'user',content:pr}],sys,function(err,txt){
+      if(err){document.getElementById('wkdetail').innerHTML='<div class="card" style="color:var(--dim);font-size:13px">'+err+'</div>';}
+      else{document.getElementById('wkdetail').innerHTML='<div class="card"><div class="wotxt">'+txt.replace(/\n/g,'<br>')+'</div></div>';}
+      btn.disabled=false;document.getElementById('gwtxt').style.display='';document.getElementById('gwspn').style.display='none';
+    });
+  });
 
-// ── CHAT ──
-const chatHistory = [];
+  // GEN WORKOUT
+  document.getElementById('genbtn').addEventListener('click',function(){
+    var btn=this;btn.disabled=true;
+    document.getElementById('gentxt').style.display='none';document.getElementById('genspn').style.display='flex';
+    var type=document.getElementById('gtype').value;
+    var time=document.getElementById('gtime').value;
+    var feel=document.getElementById('gfeel').value;
+    var place=document.getElementById('gplace').value;
+    var tl={easy:'Легкий',tempo:'Темповий',interval:'Інтервали',long:'Довга',fartlek:'Фартлек',hills:'Горки'};
+    var pl={lazienki:'Łazienki Królewskie',mokotow:'Pole Mokotowskie',vistula:'Набережна Вісли',any:'Будь-де'};
+    var fl={great:'відмінно',good:'добре',tired:'втомлена',sore:'болять м\'язи'};
+    var bm={easy:'be',tempo:'bt',interval:'bi',long:'bl',fartlek:'bt',hills:'bt'};
+    var wk=getWk();
+    var sys='Ти досвідчений марафонський тренер. Відповідай ТІЛЬКИ українською. '+ATHLETE;
+    var pr='Склади тренування:\n- Тип: '+tl[type]+'\n- Час: '+time+' хв\n- Самопочуття: '+fl[feel]+'\n- Місце: '+pl[place]+'\n- Тиждень '+wk+' ('+getPhase(wk)+')\nФормат: 🎯 Назва\n🔥 Розминка\n⚡ Основна частина з темпом і пульсом\n🧊 Заминка\n💡 Порада';
+    claude([{role:'user',content:pr}],sys,function(err,txt){
+      document.getElementById('wbadge').className='bdg '+(bm[type]||'be');
+      document.getElementById('wbadge').textContent=tl[type];
+      document.getElementById('wmeta').textContent=time+' хв · '+pl[place];
+      document.getElementById('wtxt').textContent=err?err:txt;
+      document.getElementById('wout').classList.add('show');
+      btn.disabled=false;document.getElementById('gentxt').style.display='';document.getElementById('genspn').style.display='none';
+    });
+  });
 
-function quickQ(q) { document.getElementById('chatInp').value = q; sendMsg(); }
+  // CHAT
+  document.getElementById('sndbtn').addEventListener('click',sendMsg);
+  document.getElementById('cinp').addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg();});
+  document.querySelectorAll('.qb').forEach(function(btn){
+    btn.addEventListener('click',function(){document.getElementById('cinp').value=this.getAttribute('data-q');sendMsg();});
+  });
 
-async function sendMsg() {
-  const inp = document.getElementById('chatInp');
-  const msg = inp.value.trim();
-  if (!msg) return;
-  inp.value = '';
-
-  const msgs = document.getElementById('chatMsgs');
-  const now = new Date().toLocaleTimeString('uk-UA', { hour:'2-digit', minute:'2-digit' });
-
-  msgs.innerHTML += `<div class="msg user"><div class="bubble">${msg}</div><div class="msg-time">${now}</div></div>`;
-
-  const tid = 'typ' + Date.now();
-  msgs.innerHTML += `<div class="msg ai" id="${tid}"><div class="bubble"><div class="typing"><span></span><span></span><span></span></div></div></div>`;
-  msgs.scrollTop = msgs.scrollHeight;
-
-  document.getElementById('sendBtn').disabled = true;
-  chatHistory.push({ role:'user', content:msg });
-
-  const weekNum = parseInt(document.getElementById('currentWeekNum').textContent) || 6;
-  const sys = `Ти персональний марафонський тренер Анастасії. ТІЛЬКИ українською. Коротко (3-5 речень), конкретно, з теплотою. ${ATHLETE} Зараз тиждень ${weekNum} з 23, фаза: ${getPhase(weekNum)}.`;
-
-  try {
-    const reply = await callClaude(chatHistory.slice(-8), sys);
-    chatHistory.push({ role:'assistant', content:reply });
-    document.getElementById(tid).outerHTML = `<div class="msg ai"><div class="bubble">${reply.replace(/\n/g,'<br>')}</div><div class="msg-time">Тренер · ${now}</div></div>`;
-  } catch(e) {
-    document.getElementById(tid).outerHTML = `<div class="msg ai"><div class="bubble">Помилка з'єднання 🙏</div><div class="msg-time">Тренер</div></div>`;
+  function sendMsg(){
+    var inp=document.getElementById('cinp');
+    var msg=inp.value.trim();if(!msg)return;inp.value='';
+    var msgs=document.getElementById('chatmsgs');
+    var now=new Date();
+    var t=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+    msgs.innerHTML+='<div class="msg usr"><div class="bub">'+msg+'</div><div class="mt">'+t+'</div></div>';
+    var tid='t'+Date.now();
+    msgs.innerHTML+='<div class="msg ai" id="'+tid+'"><div class="bub"><div class="typing"><span></span><span></span><span></span></div></div></div>';
+    msgs.scrollTop=msgs.scrollHeight;
+    document.getElementById('sndbtn').disabled=true;
+    chatHist.push({role:'user',content:msg});
+    var wk=getWk();
+    var sys='Ти персональний марафонський тренер Анастасії. ТІЛЬКИ українською. Коротко (3-5 речень), конкретно, з теплотою. '+ATHLETE+' Тиждень '+wk+' з 23, фаза: '+getPhase(wk)+'.';
+    claude(chatHist.slice(-8),sys,function(err,txt){
+      var el=document.getElementById(tid);
+      var reply=err?err:txt;
+      if(el)el.outerHTML='<div class="msg ai"><div class="bub">'+reply.replace(/\n/g,'<br>')+'</div><div class="mt">Тренер · '+t+'</div></div>';
+      if(!err)chatHist.push({role:'assistant',content:txt});
+      msgs.scrollTop=msgs.scrollHeight;
+      document.getElementById('sndbtn').disabled=false;
+    });
   }
 
-  msgs.scrollTop = msgs.scrollHeight;
-  document.getElementById('sendBtn').disabled = false;
-}
-
+})();
 </script>
 </body>
 </html>
