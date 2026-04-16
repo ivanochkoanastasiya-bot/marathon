@@ -14,138 +14,144 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;background:var(--bg);}
 body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--txt);display:flex;flex-direction:column;}
-.hdr{background:rgba(10,13,8,0.95);padding:calc(env(safe-area-inset-top,0px)+12px) 18px 12px;border-bottom:1px solid var(--brd);flex-shrink:0;}
+.hdr{background:rgba(10,13,8,0.97);padding:calc(env(safe-area-inset-top,0px)+10px) 18px 10px;border-bottom:1px solid var(--brd);flex-shrink:0;}
 .hdr-row{display:flex;justify-content:space-between;align-items:center;}
-.aname{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--acc);}
+.aname{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--acc);}
 .hdate{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
-.cds{display:flex;gap:12px;margin-top:10px;align-items:flex-end;}
+.cds{display:flex;gap:10px;margin-top:8px;align-items:flex-end;}
 .cdb{text-align:center;}
-.cdn{font-family:'Unbounded',sans-serif;font-size:26px;font-weight:900;color:var(--acc);line-height:1;}
-.cdu{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:2px;}
-.cdsp{font-family:'Unbounded',sans-serif;font-size:20px;color:var(--dim);margin-bottom:4px;}
-.mdt{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-left:auto;text-align:right;line-height:1.6;}
-.mdt strong{color:var(--txt);display:block;font-size:12px;}
+.cdn{font-family:'Unbounded',sans-serif;font-size:24px;font-weight:900;color:var(--acc);line-height:1;}
+.cdu{font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:2px;}
+.cdsp{font-family:'Unbounded',sans-serif;font-size:18px;color:var(--dim);margin-bottom:3px;}
+.mdt{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);margin-left:auto;text-align:right;line-height:1.6;}
+.mdt strong{color:var(--txt);display:block;font-size:11px;}
 .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .content::-webkit-scrollbar{display:none;}
 .nav{display:flex;background:rgba(10,13,8,0.97);border-top:1px solid var(--brd);padding-bottom:env(safe-area-inset-bottom,0px);flex-shrink:0;}
-.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px 8px;border:none;background:transparent;color:var(--dim);cursor:pointer;font-family:'DM Sans',sans-serif;}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px 7px;border:none;background:transparent;color:var(--dim);cursor:pointer;font-family:'DM Sans',sans-serif;}
 .nb.on{color:var(--acc);}
-.ni{font-size:20px;line-height:1;}
-.nl{font-size:9px;text-transform:uppercase;letter-spacing:.06em;}
-.pg{display:none;padding:16px 16px 32px;}
+.ni{font-size:19px;line-height:1;}
+.nl{font-size:8px;text-transform:uppercase;letter-spacing:.06em;}
+.pg{display:none;padding:14px 14px 28px;}
 .pg.on{display:block;}
-.card{background:var(--s1);border:1px solid var(--brd);border-radius:16px;padding:16px;margin-bottom:12px;}
-.ct{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:300;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
-.pbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(197,241,53,.1);border:1px solid rgba(197,241,53,.25);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--acc);margin-bottom:14px;font-family:'DM Mono',monospace;}
-.pdot{width:6px;height:6px;background:var(--acc);border-radius:50%;animation:pulse 2s ease infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-.pw{margin-bottom:16px;}
-.pm{display:flex;justify-content:space-between;font-size:11px;color:var(--dim);margin-bottom:6px;font-family:'DM Mono',monospace;}
-.pb{height:3px;background:var(--s3);border-radius:2px;}
-.pf{height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:2px;transition:width 1s ease;}
-.sg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
-.sbox{background:var(--s2);border-radius:12px;padding:12px;}
-.sv{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:700;color:var(--acc);line-height:1;}
-.sl{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
-.pril{display:flex;flex-direction:column;gap:8px;}
-.pri{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:var(--s2);border-radius:10px;border-left:3px solid transparent;}
+.card{background:var(--s1);border:1px solid var(--brd);border-radius:14px;padding:14px;margin-bottom:10px;}
+.ct{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:300;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;}
+
+/* HOME */
+.cdstrip-sub{display:flex;gap:6px;margin-top:6px;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
+.cdstrip-sub span{color:var(--acc2);}
+.prog-section{margin:10px 0 12px;}
+.prog-label{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;margin-bottom:5px;}
+.prog-track{height:6px;background:var(--s3);border-radius:3px;position:relative;overflow:visible;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:3px;transition:width 1.2s ease;position:relative;}
+.prog-marker{position:absolute;top:-4px;right:-6px;width:14px;height:14px;background:var(--acc);border-radius:50%;border:2px solid var(--bg);}
+.prog-milestones{display:flex;justify-content:space-between;margin-top:4px;}
+.prog-ms{font-size:8px;color:var(--dim);font-family:'DM Mono',monospace;text-align:center;}
+.prog-ms.done{color:var(--acc2);}
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.sg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;}
+.sbox{background:var(--s2);border-radius:10px;padding:10px 12px;}
+.sbox.accent{border:1px solid rgba(197,241,53,.2);}
+.sv{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;color:var(--acc);line-height:1;}
+.sv.sm{font-size:15px;}
+.sl{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;}
+.pril{display:flex;flex-direction:column;gap:6px;}
+.pri{display:flex;gap:10px;align-items:flex-start;padding:9px 11px;background:var(--s2);border-radius:9px;border-left:3px solid transparent;}
 .pri.hi{border-color:var(--red);}
 .pri.me{border-color:var(--amb);}
 .pri.lo{border-color:var(--acc);}
-.pnum{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);min-width:18px;margin-top:1px;}
-.ptxt{font-size:13px;color:var(--txt);line-height:1.5;}
+.pnum{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);min-width:16px;margin-top:1px;}
+.ptxt{font-size:13px;color:var(--txt);line-height:1.4;}
 .ptag{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;}
-/* Plan page */
-.wkh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.wkt{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:var(--acc);}
-.wks{font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:2px;}
-.wknav{display:flex;gap:8px;align-items:center;}
-.wknavbtn{background:var(--s2);border:1px solid var(--brd);color:var(--txt);border-radius:8px;padding:6px 14px;font-size:16px;cursor:pointer;font-family:'DM Sans',sans-serif;}
-.wknavbtn:disabled{opacity:.3;}
-.gwb{background:var(--acc);color:var(--bg);border:none;border-radius:10px;padding:8px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;}
-.gwb:disabled{opacity:.5;}
-.dr{background:var(--s1);border:1px solid var(--brd);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;}
-.dr.tod{border-color:rgba(197,241,53,.5);background:rgba(197,241,53,.05);}
-.dr.rst{opacity:.5;}
-.dr.done{opacity:.6;}
-.dl{min-width:40px;text-align:center;}
-.dln{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;color:var(--dim);}
-.dld{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:2px;}
-.tdot{width:6px;height:6px;background:var(--acc);border-radius:50%;margin:4px auto 0;}
-.ddone{width:14px;height:14px;background:var(--acc2);border-radius:50%;margin:4px auto 0;display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--bg);}
+
+/* DASHBOARD */
+.dash-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.dash-big{background:var(--s2);border-radius:12px;padding:14px;text-align:center;}
+.dash-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--acc);line-height:1;}
+.dash-lbl{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
+.dash-sub{font-size:10px;color:var(--acc2);font-family:'DM Mono',monospace;margin-top:2px;}
+.trend-row{display:flex;gap:4px;align-items:flex-end;height:60px;margin:8px 0 4px;}
+.trend-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.trend-bar{width:100%;background:var(--s3);border-radius:2px 2px 0 0;position:relative;transition:height .6s ease;}
+.trend-bar.cur{background:var(--acc);}
+.trend-bar.past{background:var(--acc2);opacity:.7;}
+.trend-lbl{font-size:7px;color:var(--dim);font-family:'DM Mono',monospace;text-align:center;}
+.run-item{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--brd);}
+.run-item:last-child{border-bottom:none;}
+.run-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);min-width:38px;}
+.run-km{font-family:'Unbounded',sans-serif;font-size:14px;color:var(--acc);font-weight:700;min-width:44px;}
+.run-stats{flex:1;font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;line-height:1.5;}
+.run-badge{font-size:9px;padding:2px 7px;border-radius:10px;font-family:'DM Mono',monospace;}
+.rb-long{background:rgba(197,241,53,.12);color:var(--acc);}
+.rb-easy{background:rgba(92,184,255,.1);color:var(--blue);}
+.rb-short{background:rgba(74,82,64,.3);color:var(--dim);}
+
+/* PREDICTION */
+.pred-main{background:linear-gradient(135deg,rgba(197,241,53,.08),rgba(143,212,42,.04));border:1px solid rgba(197,241,53,.2);border-radius:14px;padding:18px;margin-bottom:10px;text-align:center;}
+.pred-time{font-family:'Unbounded',sans-serif;font-size:36px;font-weight:900;color:var(--acc);line-height:1;margin-bottom:4px;}
+.pred-label{font-size:11px;color:var(--dim);margin-bottom:12px;font-family:'DM Mono',monospace;}
+.pred-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
+.pred-cell{background:rgba(0,0,0,.3);border-radius:8px;padding:8px;text-align:center;}
+.pred-val{font-family:'DM Mono',monospace;font-size:14px;color:var(--txt);font-weight:500;}
+.pred-lbl2{font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+.conf-bar{height:4px;background:var(--s3);border-radius:2px;margin:10px 0 4px;}
+.conf-fill{height:100%;background:linear-gradient(90deg,var(--amb),var(--acc));border-radius:2px;}
+.conf-label{display:flex;justify-content:space-between;font-size:9px;color:var(--dim);font-family:'DM Mono',monospace;}
+.insight-box{background:var(--s2);border-radius:10px;padding:12px;margin-bottom:8px;border-left:3px solid var(--acc);}
+.insight-title{font-size:11px;color:var(--acc);font-family:'DM Mono',monospace;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;}
+.insight-txt{font-size:13px;color:var(--txt);line-height:1.6;}
+
+/* PLAN */
+.wkh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.wkt{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--acc);}
+.wks{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:2px;}
+.wknav{display:flex;gap:6px;}
+.wknavbtn{background:var(--s2);border:1px solid var(--brd);color:var(--txt);border-radius:7px;padding:5px 12px;font-size:15px;cursor:pointer;}
+.wknavbtn:disabled{opacity:.25;}
+.wsum{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.wsumitem{background:var(--s2);border-radius:7px;padding:5px 9px;text-align:center;flex:1;}
+.wsumv{font-family:'DM Mono',monospace;font-size:13px;color:var(--acc);font-weight:500;}
+.wsuml{font-size:8px;color:var(--dim);text-transform:uppercase;margin-top:1px;}
+.dr{background:var(--s1);border:1px solid var(--brd);border-radius:11px;padding:10px 12px;margin-bottom:7px;display:flex;gap:10px;align-items:flex-start;}
+.dr.tod{border-color:rgba(197,241,53,.5);background:rgba(197,241,53,.04);}
+.dr.rst{opacity:.45;}
+.dr.done{border-color:rgba(143,212,42,.2);}
+.dl{min-width:38px;text-align:center;}
+.dln{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;color:var(--dim);}
+.dld{font-size:9px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:1px;}
+.tdot{width:5px;height:5px;background:var(--acc);border-radius:50%;margin:3px auto 0;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.ddone{font-size:10px;color:var(--acc2);margin-top:3px;}
 .dc{flex:1;}
-.bdg{font-size:10px;padding:2px 8px;border-radius:20px;font-family:'DM Mono',monospace;display:inline-block;margin-bottom:4px;}
+.bdg{font-size:9px;padding:2px 7px;border-radius:9px;font-family:'DM Mono',monospace;display:inline-block;margin-bottom:3px;}
 .be{background:rgba(92,184,255,.12);color:var(--blue);}
 .bt{background:rgba(255,184,48,.12);color:var(--amb);}
-.bi{background:rgba(255,92,92,.12);color:var(--red);}
 .bl{background:rgba(197,241,53,.12);color:var(--acc);}
-.br{background:rgba(74,82,64,.3);color:var(--dim);}
+.br{background:rgba(74,82,64,.25);color:var(--dim);}
 .bs{background:rgba(143,212,42,.08);color:var(--acc2);}
-.bm{background:rgba(255,107,107,.15);color:#ff8a8a;}
-.ddsc{font-size:13px;color:var(--txt);line-height:1.5;}
-.dkm{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);margin-top:3px;}
-.spn{width:20px;height:20px;border:2px solid var(--s3);border-top-color:var(--acc);border-radius:50%;animation:sp .8s linear infinite;margin:0 auto;}
-@keyframes sp{to{transform:rotate(360deg)}}
-/* Week summary bar */
-.wsum{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
-.wsumitem{background:var(--s2);border-radius:8px;padding:6px 10px;text-align:center;}
-.wsumv{font-family:'DM Mono',monospace;font-size:14px;color:var(--acc);font-weight:500;}
-.wsuml{font-size:9px;color:var(--dim);text-transform:uppercase;margin-top:2px;}
-/* Log */
-.lf{background:var(--s1);border:1px solid var(--brd);border-radius:16px;padding:16px;margin-bottom:16px;}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.bm{background:rgba(255,92,92,.12);color:var(--red);}
+.ddsc{font-size:12px;color:var(--txt);line-height:1.4;}
+.dkm{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);margin-top:2px;}
+
+/* LOG */
+.lf{background:var(--s1);border:1px solid var(--brd);border-radius:14px;padding:14px;margin-bottom:12px;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:7px;}
 .fr.full{grid-template-columns:1fr;}
-.fg label{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px;font-family:'DM Mono',monospace;}
-.fg input,.fg select,.fg textarea{width:100%;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 12px;border-radius:10px;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;}
-.fg textarea{min-height:64px;resize:none;}
+.fg label{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:4px;font-family:'DM Mono',monospace;}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;padding:9px 11px;border-radius:9px;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;}
+.fg textarea{min-height:58px;resize:none;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--acc);}
-.svbtn{width:100%;padding:14px;background:var(--acc);color:var(--bg);border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px;}
-.les{display:flex;flex-direction:column;gap:8px;}
-.le{background:var(--s1);border:1px solid var(--brd);border-radius:12px;padding:12px 14px;}
-.et{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.edt{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);}
-.edel{background:none;border:none;color:var(--dim);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;}
-.ests{display:flex;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
-.est .ev{color:var(--acc);font-size:15px;font-weight:500;display:block;font-family:'DM Mono',monospace;}
-.est .el{color:var(--dim);font-size:9px;text-transform:uppercase;}
-.enote{font-size:12px;color:var(--dim);line-height:1.5;font-style:italic;}
-.empty{text-align:center;padding:32px 0;color:var(--dim);font-size:14px;}
-/* Gen */
-.gc{background:var(--s1);border:1px solid var(--brd);border-radius:16px;padding:16px;margin-bottom:12px;}
-.sr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.sg2 label{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px;}
-.sg2 select,.sg2 input{width:100%;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:13px;padding:9px 12px;border-radius:10px;outline:none;appearance:none;-webkit-appearance:none;transition:border-color .2s;}
-.sg2 select:focus,.sg2 input:focus{border-color:var(--acc);}
-.bbn{width:100%;padding:14px;background:var(--acc);color:var(--bg);border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
-.bbn:disabled{opacity:.5;}
-.wo{background:var(--s2);border:1px solid var(--brd);border-radius:12px;padding:14px;margin-top:10px;display:none;}
-.wo.show{display:block;}
-.woh{display:flex;justify-content:space-between;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--brd);}
-.wotxt{font-size:13px;line-height:1.85;color:var(--txt);white-space:pre-wrap;}
-/* Chat */
-.cb{background:var(--s1);border:1px solid var(--brd);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 200px);max-height:560px;}
-.cm{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;-webkit-overflow-scrolling:touch;}
-.cm::-webkit-scrollbar{display:none;}
-.msg{max-width:88%;}
-.msg.ai{align-self:flex-start;}
-.msg.usr{align-self:flex-end;}
-.bub{padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.65;}
-.msg.ai .bub{background:var(--s2);color:var(--txt);border-bottom-left-radius:4px;}
-.msg.usr .bub{background:var(--acc);color:var(--bg);border-bottom-right-radius:4px;}
-.mt{font-size:9px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:3px;padding:0 4px;}
-.msg.usr .mt{text-align:right;}
-.qqs{display:flex;gap:6px;overflow-x:auto;padding:8px 14px;-webkit-overflow-scrolling:touch;}
-.qqs::-webkit-scrollbar{display:none;}
-.qb{white-space:nowrap;font-size:11px;padding:6px 12px;background:var(--s2);border:1px solid var(--brd);color:var(--dim);border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0;}
-.cir{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--brd);}
-.ci{flex:1;background:var(--s2);border:1px solid var(--brd);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;border-radius:22px;outline:none;}
-.ci:focus{border-color:rgba(197,241,53,.4);}
-.sndbtn{width:40px;height:40px;background:var(--acc);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.typing{display:flex;gap:4px;align-items:center;}
-.typing span{width:5px;height:5px;background:var(--dim);border-radius:50%;animation:bo 1.2s ease infinite;}
-.typing span:nth-child(2){animation-delay:.2s;}
-.typing span:nth-child(3){animation-delay:.4s;}
-@keyframes bo{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.svbtn{width:100%;padding:13px;background:var(--acc);color:var(--bg);border:none;border-radius:11px;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;cursor:pointer;margin-top:3px;}
+.les{display:flex;flex-direction:column;gap:7px;}
+.le{background:var(--s1);border:1px solid var(--brd);border-radius:11px;padding:11px 13px;}
+.et{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.edt{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
+.edel{background:none;border:none;color:var(--dim);font-size:17px;cursor:pointer;padding:0 3px;line-height:1;}
+.ests{display:flex;gap:10px;margin-bottom:5px;flex-wrap:wrap;}
+.est .ev{color:var(--acc);font-size:14px;font-weight:500;display:block;font-family:'DM Mono',monospace;}
+.est .el{color:var(--dim);font-size:8px;text-transform:uppercase;}
+.enote{font-size:11px;color:var(--dim);line-height:1.5;font-style:italic;}
+.empty{text-align:center;padding:28px 0;color:var(--dim);font-size:13px;}
 </style>
 </head>
 <body>
@@ -161,7 +167,9 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--txt);display:f
     <div class="cdb"><div class="cdn" id="cdH">—</div><div class="cdu">год</div></div>
     <div class="cdsp">:</div>
     <div class="cdb"><div class="cdn" id="cdM">—</div><div class="cdu">хв</div></div>
-    <div class="mdt"><strong>27.09.2026</strong>Варшава</div>
+    <div class="cdsp">:</div>
+    <div class="cdb"><div class="cdn" id="cdS">—</div><div class="cdu">сек</div></div>
+    <div class="mdt"><strong>27.09.2026</strong>старт 09:00</div>
   </div>
 </div>
 
@@ -169,34 +177,115 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--txt);display:f
 
   <!-- HOME -->
   <div class="pg on" id="pg-home">
-    <div class="pbadge"><span class="pdot"></span><span id="phaseName">—</span> · тиждень <span id="wkNum">—</span>/26</div>
-    <div class="pw">
-      <div class="pm"><span>Підготовка</span><span id="ppct">—%</span></div>
-      <div class="pb"><div class="pf" id="pfill" style="width:0%"></div></div>
+    <div class="prog-section">
+      <div class="prog-label">
+        <span id="phaseLabel">—</span>
+        <span id="progPct">—%</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-bar" id="progBar" style="width:0%">
+          <div class="prog-marker"></div>
+        </div>
+      </div>
+      <div class="prog-milestones" id="milestones"></div>
     </div>
-    <div class="sg">
-      <div class="sbox"><div class="sv">189</div><div class="sl">км база Strava</div></div>
-      <div class="sbox"><div class="sv" id="wkleft">—</div><div class="sl">тижнів до старту</div></div>
-      <div class="sbox"><div class="sv" id="logkms">0</div><div class="sl">км у щоденнику</div></div>
-      <div class="sbox"><div class="sv" id="runsc">0</div><div class="sl">пробіжок записано</div></div>
+
+    <div class="sg2">
+      <div class="sbox accent"><div class="sv" id="hmTotalKm">—</div><div class="sl">км пробігла всього</div></div>
+      <div class="sbox"><div class="sv" id="hmWksLeft">—</div><div class="sl">тижнів до старту</div></div>
     </div>
+    <div class="sg3">
+      <div class="sbox"><div class="sv sm" id="hmAvgPace">—</div><div class="sl">сер темп</div></div>
+      <div class="sbox"><div class="sv sm" id="hmAvgHr">—</div><div class="sl">сер пульс</div></div>
+      <div class="sbox"><div class="sv sm" id="hmRuns">—</div><div class="sl">пробіжок</div></div>
+    </div>
+
     <div class="card">
       <div class="ct">Пріоритети цього тижня</div>
-      <div class="pril" id="homePriorities"></div>
+      <div class="pril" id="homePri"></div>
     </div>
+
     <div class="card">
       <div class="ct">Сьогодні за планом</div>
-      <div id="todayPlan" style="font-size:14px;color:var(--txt);line-height:1.6;"></div>
+      <div id="todayBox" style="font-size:13px;color:var(--txt);line-height:1.6;"></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="pg" id="pg-dash">
+    <div class="dash-row">
+      <div class="dash-big">
+        <div class="dash-num" id="dTotalKm">—</div>
+        <div class="dash-lbl">км пробігла</div>
+        <div class="dash-sub" id="dSinceJan">—</div>
+      </div>
+      <div class="dash-big">
+        <div class="dash-num" id="dRuns">—</div>
+        <div class="dash-lbl">пробіжок</div>
+        <div class="dash-sub" id="dLongRuns">— довгих</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ct">Кілометраж по тижнях (план → факт)</div>
+      <div class="trend-row" id="trendBars"></div>
+      <div style="display:flex;gap:12px;font-size:9px;color:var(--dim);font-family:'DM Mono',monospace;margin-top:4px;">
+        <span><span style="display:inline-block;width:8px;height:8px;background:var(--acc);border-radius:1px;margin-right:3px"></span>Факт</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:var(--s3);border-radius:1px;margin-right:3px"></span>План</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ct">Середні показники (останні 4 тижні)</div>
+      <div class="sg3">
+        <div class="sbox"><div class="sv sm" id="d4Pace">—</div><div class="sl">темп хв/км</div></div>
+        <div class="sbox"><div class="sv sm" id="d4Hr">—</div><div class="sl">пульс уд/хв</div></div>
+        <div class="sbox"><div class="sv sm" id="d4Wkm">—</div><div class="sl">км/тиждень</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ct">Останні пробіжки</div>
+      <div id="recentRuns"></div>
+    </div>
+  </div>
+
+  <!-- PREDICTION -->
+  <div class="pg" id="pg-pred">
+    <div class="pred-main">
+      <div style="font-size:9px;color:var(--dim);font-family:'DM Mono',monospace;margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em">Прогноз марафону · 27.09.2026</div>
+      <div class="pred-time" id="predTime">—:—:—</div>
+      <div class="pred-label" id="predLabel">на основі твоїх реальних тренувань</div>
+      <div class="pred-grid">
+        <div class="pred-cell"><div class="pred-val" id="predPace">—</div><div class="pred-lbl2">темп хв/км</div></div>
+        <div class="pred-cell"><div class="pred-val" id="predHr">—</div><div class="pred-lbl2">пульс фін.</div></div>
+        <div class="pred-cell"><div class="pred-val" id="predFinish">—</div><div class="pred-lbl2">час фінішу</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ct">Впевненість прогнозу</div>
+      <div class="conf-bar"><div class="conf-fill" id="confFill" style="width:0%"></div></div>
+      <div class="conf-label"><span>Мало даних</span><span id="confPct">—%</span><span>Висока точність</span></div>
+    </div>
+
+    <div id="insightsBox"></div>
+
+    <div class="card">
+      <div class="ct">Прогноз на різні дистанції</div>
+      <div id="distPreds"></div>
+    </div>
+
+    <div class="card" style="background:rgba(197,241,53,.04);border-color:rgba(197,241,53,.15);">
+      <div class="ct">Як змінюється прогноз</div>
+      <div style="font-size:12px;color:var(--dim);line-height:1.7;" id="trendInsight"></div>
     </div>
   </div>
 
   <!-- PLAN -->
   <div class="pg" id="pg-plan">
     <div class="wkh">
-      <div>
-        <div class="wkt" id="plantitle">Тиждень —</div>
-        <div class="wks" id="planrange"></div>
-      </div>
+      <div><div class="wkt" id="plantitle">Тиждень —</div><div class="wks" id="planrange"></div></div>
       <div class="wknav">
         <button class="wknavbtn" id="wkprev">‹</button>
         <button class="wknavbtn" id="wknext">›</button>
@@ -204,27 +293,19 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--txt);display:f
     </div>
     <div class="wsum" id="wsum"></div>
     <div id="wkdays"></div>
-    <div style="margin-top:12px;">
-      <button class="gwb" id="gwbtn" style="width:100%;justify-content:center;padding:12px;">
-        <span id="gwtxt">⚡ Детальний план від AI тренера</span>
-        <span id="gwspn" style="display:none"><div class="spn" style="width:14px;height:14px;border-top-color:var(--bg)"></div></span>
-      </button>
-    </div>
-    <div id="wkdetail"></div>
   </div>
 
   <!-- LOG -->
   <div class="pg" id="pg-log">
     <div class="lf">
-      <div class="ct">Записати тренування</div>
+      <div class="ct">Додати тренування</div>
       <div class="fr">
         <div class="fg"><label>Дата</label><input type="date" id="ldate"></div>
         <div class="fg"><label>Тип</label>
           <select id="ltype">
-            <option value="easy">Легкий біг (ER)</option>
-            <option value="long">Довга (LR)</option>
-            <option value="tempo">Темповий (TR)</option>
-            <option value="interval">Інтервали</option>
+            <option value="easy">Легкий ER</option>
+            <option value="long">Довга LR</option>
+            <option value="tempo">Темповий TR</option>
             <option value="strength">Силові</option>
             <option value="rest">Відпочинок</option>
           </select>
@@ -247,147 +328,121 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--txt);display:f
         </div>
       </div>
       <div class="fr full">
-        <div class="fg"><label>Нотатка</label><textarea id="lnote" placeholder="Як пройшло тренування?"></textarea></div>
+        <div class="fg"><label>Нотатка</label><textarea id="lnote" placeholder="Як пройшло?"></textarea></div>
       </div>
       <button class="svbtn" id="savebtn">Зберегти тренування</button>
     </div>
-    <div class="ct" style="padding:0 4px;margin-bottom:10px;">Історія тренувань</div>
-    <div class="les" id="loglist"><div class="empty">Ще немає записів 🏃‍♀️</div></div>
-  </div>
-
-  <!-- GEN -->
-  <div class="pg" id="pg-gen">
-    <div class="gc">
-      <div class="ct">Персональне тренування</div>
-      <div class="sr">
-        <div class="sg2"><label>Тип</label>
-          <select id="gtype">
-            <option value="easy">Легкий біг (ER)</option>
-            <option value="tempo">Темповий (TR)</option>
-            <option value="interval">Інтервали</option>
-            <option value="long" selected>Довга (LR)</option>
-            <option value="strength">Силові</option>
-          </select>
-        </div>
-        <div class="sg2"><label>Час (хв)</label><input type="number" id="gtime" value="60" min="20" max="210"></div>
-      </div>
-      <div class="sr">
-        <div class="sg2"><label>Самопочуття</label>
-          <select id="gfeel">
-            <option value="great">Відмінно</option>
-            <option value="good" selected>Добре</option>
-            <option value="tired">Втомлена</option>
-            <option value="sore">Болять м'язи</option>
-          </select>
-        </div>
-        <div class="sg2"><label>Місце</label>
-          <select id="gplace">
-            <option value="lazienki">Łazienki</option>
-            <option value="mokotow">Pole Mokotowskie</option>
-            <option value="vistula">Набережна Вісли</option>
-            <option value="any">Будь-де</option>
-          </select>
-        </div>
-      </div>
-      <button class="bbn" id="genbtn">
-        <span id="gentxt">Згенерувати тренування</span>
-        <span id="genspn" style="display:none"><div class="spn" style="width:16px;height:16px;border-top-color:var(--bg)"></div></span>
-      </button>
-    </div>
-    <div class="wo" id="wout">
-      <div class="woh">
-        <span class="bdg" id="wbadge">—</span>
-        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--dim)" id="wmeta">—</span>
-      </div>
-      <div class="wotxt" id="wtxt"></div>
-    </div>
-  </div>
-
-  <!-- COACH -->
-  <div class="pg" id="pg-coach">
-    <div class="cb">
-      <div class="cm" id="chatmsgs">
-        <div class="msg ai">
-          <div class="bub">Привіт, Настю! 👋 Бачу твій 26-тижневий план завантажено. Ти молодець — виконуєш план без пропусків! Про що хочеш поговорити?</div>
-          <div class="mt">Тренер</div>
-        </div>
-      </div>
-      <div class="qqs">
-        <button class="qb" data-q="Який цільовий час фінішу для мене реалістичний?">Цільовий час?</button>
-        <button class="qb" data-q="Як правильно бігти довгу пробіжку LR?">Як бігти LR?</button>
-        <button class="qb" data-q="Що їсти і пити під час довгої пробіжки понад 20 км?">Харчування?</button>
-        <button class="qb" data-q="Як уникнути травм при великому об'ємі?">Травми?</button>
-        <button class="qb" data-q="Поясни різницю між ER, TR і LR темпом для мене">ER vs TR vs LR?</button>
-      </div>
-      <div class="cir">
-        <input class="ci" id="cinp" placeholder="Запитай тренера...">
-        <button class="sndbtn" id="sndbtn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0a0d08" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
-      </div>
-    </div>
+    <div class="ct" style="padding:0 2px;margin-bottom:8px;">Історія тренувань зі Strava</div>
+    <div class="les" id="loglist"></div>
   </div>
 
 </div>
 
 <nav class="nav">
   <button class="nb on" data-p="home"><span class="ni">🏠</span><span class="nl">Головна</span></button>
+  <button class="nb" data-p="dash"><span class="ni">📊</span><span class="nl">Статистика</span></button>
+  <button class="nb" data-p="pred"><span class="ni">🔮</span><span class="nl">Прогноз</span></button>
   <button class="nb" data-p="plan"><span class="ni">📅</span><span class="nl">План</span></button>
   <button class="nb" data-p="log"><span class="ni">📝</span><span class="nl">Щоденник</span></button>
-  <button class="nb" data-p="gen"><span class="ni">⚡</span><span class="nl">Тренування</span></button>
-  <button class="nb" data-p="coach"><span class="ni">💬</span><span class="nl">Тренер</span></button>
 </nav>
 
 <script>
 (function(){
 
-// ── THE REAL 26-WEEK PLAN (from your spreadsheet, improved) ──
-// ER = Easy Run (7:10-7:40, HR 140-150)
-// LR = Long Run (7:00-7:30, HR 145-158)
-// TR = Tempo Run (6:05-6:20, HR 168-176)
-// Numbers = km
-var PLAN = [
-  {wk:1,  date:"30.03", mon:"Strength", tue:"6 ER",  wed:"Відпочинок", thu:"Strength+5 ER",  fri:"Відпочинок", sat:"4 ER",  sun:"12 LR"},
-  {wk:2,  date:"06.04", mon:"Strength", tue:"6 ER",  wed:"Відпочинок", thu:"Strength+6 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"14 LR"},
-  {wk:3,  date:"13.04", mon:"Strength", tue:"5 ER",  wed:"Відпочинок", thu:"Strength+5 ER",  fri:"Відпочинок", sat:"4 ER",  sun:"10 LR"},
-  {wk:4,  date:"20.04", mon:"Strength", tue:"6 ER",  wed:"Відпочинок", thu:"Strength+7 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"16 LR"},
-  {wk:5,  date:"27.04", mon:"Strength", tue:"7 ER",  wed:"Відпочинок", thu:"Strength+7 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"18 LR"},
-  {wk:6,  date:"04.05", mon:"Strength", tue:"6 ER",  wed:"Відпочинок", thu:"Strength+6 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"14 LR"},
-  {wk:7,  date:"11.05", mon:"Strength", tue:"7 ER",  wed:"Відпочинок", thu:"Strength+8 ER",  fri:"Відпочинок", sat:"6 ER",  sun:"20 LR"},
-  {wk:8,  date:"18.05", mon:"Strength", tue:"6 ER",  wed:"Відпочинок", thu:"Strength+6 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"14 LR"},
-  {wk:9,  date:"25.05", mon:"Strength", tue:"7 ER",  wed:"Відпочинок", thu:"Strength+8 ER",  fri:"Відпочинок", sat:"6 ER",  sun:"20 LR"},
-  {wk:10, date:"01.06", mon:"Strength", tue:"8 ER",  wed:"Відпочинок", thu:"Strength+6 TR",  fri:"Відпочинок", sat:"6 ER",  sun:"22 LR"},
-  {wk:11, date:"08.06", mon:"Strength", tue:"8 ER",  wed:"Відпочинок", thu:"Strength+7 TR",  fri:"Відпочинок", sat:"6 ER",  sun:"24 LR"},
-  {wk:12, date:"15.06", mon:"Strength", tue:"9 ER",  wed:"Відпочинок", thu:"Strength+7 TR",  fri:"Відпочинок", sat:"7 ER",  sun:"20 LR"},
-  {wk:13, date:"22.06", mon:"Strength", tue:"9 ER",  wed:"Відпочинок", thu:"Strength+8 TR",  fri:"Відпочинок", sat:"8 ER",  sun:"26 LR"},
-  {wk:14, date:"29.06", mon:"Strength", tue:"10 ER", wed:"Відпочинок", thu:"Strength+8 TR",  fri:"Відпочинок", sat:"8 ER",  sun:"28 LR"},
-  {wk:15, date:"06.07", mon:"Strength", tue:"10 ER", wed:"Відпочинок", thu:"Strength+9 TR",  fri:"Відпочинок", sat:"8 ER",  sun:"30 LR"},
-  {wk:16, date:"13.07", mon:"Strength", tue:"8 ER",  wed:"Відпочинок", thu:"Strength+6 ER",  fri:"Відпочинок", sat:"6 ER",  sun:"22 LR"},
-  {wk:17, date:"20.07", mon:"Strength", tue:"9 ER",  wed:"Відпочинок", thu:"Strength+8 TR",  fri:"Відпочинок", sat:"7 ER",  sun:"28 LR"},
-  {wk:18, date:"27.07", mon:"Strength", tue:"9 ER",  wed:"Відпочинок", thu:"Strength+8 TR",  fri:"Відпочинок", sat:"7 ER",  sun:"30 LR"},
-  {wk:19, date:"03.08", mon:"Strength", tue:"10 ER", wed:"Відпочинок", thu:"Strength+10 TR", fri:"Відпочинок", sat:"8 ER",  sun:"32 LR"},
-  {wk:20, date:"10.08", mon:"Strength", tue:"9 ER",  wed:"Відпочинок", thu:"Strength+8 TR",  fri:"Відпочинок", sat:"7 ER",  sun:"28 LR"},
-  {wk:21, date:"17.08", mon:"Strength", tue:"8 ER",  wed:"Відпочинок", thu:"Strength+8 TR",  fri:"Відпочинок", sat:"6 ER",  sun:"26 LR"},
-  {wk:22, date:"24.08", mon:"Strength", tue:"8 ER",  wed:"Відпочинок", thu:"Strength+6 ER",  fri:"Відпочинок", sat:"6 ER",  sun:"22 LR"},
-  {wk:23, date:"31.08", mon:"Strength", tue:"7 ER",  wed:"Відпочинок", thu:"Strength+6 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"16 LR"},
-  {wk:24, date:"07.09", mon:"Strength", tue:"6 ER",  wed:"Відпочинок", thu:"Strength+5 ER",  fri:"Відпочинок", sat:"5 ER",  sun:"12 LR"},
-  {wk:25, date:"14.09", mon:"S легкі",  tue:"5 ER",  wed:"Відпочинок", thu:"4 ER",           fri:"Відпочинок", sat:"4 ER",  sun:"8 LR"},
-  {wk:26, date:"21.09", mon:"S легкі",  tue:"4 ER",  wed:"Відпочинок", thu:"3 ER легко",     fri:"Відпочинок", sat:"Відпочинок", sun:"МАРАФОН 🏁"},
+// ── REAL STRAVA DATA ──
+var STRAVA = [
+  {date:"2025-07-01",km:3.41,pace:6.582,hr:0,maxHr:0,cal:167,name:"Morning Run"},
+  {date:"2025-07-01",km:4.27,pace:6.699,hr:0,maxHr:0,cal:0,name:"Morning Run"},
+  {date:"2025-12-18",km:2.95,pace:7.569,hr:158,maxHr:174,cal:139,name:"Evening Run"},
+  {date:"2025-12-19",km:1.09,pace:7.368,hr:161,maxHr:168,cal:52,name:"Evening Run"},
+  {date:"2025-12-30",km:2.77,pace:7.284,hr:149,maxHr:164,cal:121,name:"Afternoon Run"},
+  {date:"2026-01-03",km:3.02,pace:7.339,hr:154,maxHr:164,cal:132,name:"Afternoon Run"},
+  {date:"2026-01-04",km:1.29,pace:7.358,hr:157,maxHr:164,cal:54,name:"Afternoon Run"},
+  {date:"2026-01-05",km:4.06,pace:7.384,hr:151,maxHr:164,cal:181,name:"Evening Run"},
+  {date:"2026-01-11",km:3.92,pace:7.695,hr:160,maxHr:172,cal:184,name:"Lunch Run"},
+  {date:"2026-01-14",km:3.99,pace:7.576,hr:160,maxHr:173,cal:205,name:"Evening Run"},
+  {date:"2026-01-27",km:1.75,pace:7.147,hr:154,maxHr:179,cal:78,name:"Evening Run"},
+  {date:"2026-01-28",km:4.15,pace:7.262,hr:149,maxHr:165,cal:184,name:"Evening Run"},
+  {date:"2026-01-30",km:2.0,pace:7.384,hr:159,maxHr:168,cal:99,name:"Evening Run"},
+  {date:"2026-02-05",km:3.93,pace:7.777,hr:154,maxHr:164,cal:178,name:"Evening Run"},
+  {date:"2026-02-08",km:7.74,pace:7.759,hr:153,maxHr:163,cal:350,name:"Afternoon Run"},
+  {date:"2026-02-11",km:3.57,pace:9.301,hr:144,maxHr:156,cal:187,name:"Lunch Run"},
+  {date:"2026-02-12",km:1.97,pace:9.73,hr:146,maxHr:156,cal:103,name:"Evening Run"},
+  {date:"2026-02-13",km:4.57,pace:9.058,hr:148,maxHr:177,cal:244,name:"Evening Run"},
+  {date:"2026-02-14",km:2.8,pace:8.198,hr:150,maxHr:161,cal:135,name:"Lunch Run"},
+  {date:"2026-02-17",km:5.94,pace:7.336,hr:167,maxHr:188,cal:302,name:"Afternoon Run"},
+  {date:"2026-02-19",km:6.68,pace:7.906,hr:164,maxHr:189,cal:354,name:"Evening Run"},
+  {date:"2026-02-21",km:10.01,pace:7.569,hr:162,maxHr:168,cal:523,name:"Morning Run"},
+  {date:"2026-02-22",km:3.01,pace:7.234,hr:156,maxHr:162,cal:134,name:"Morning Run"},
+  {date:"2026-02-25",km:6.01,pace:7.123,hr:164,maxHr:185,cal:291,name:"Afternoon Run"},
+  {date:"2026-02-27",km:7.01,pace:7.538,hr:152,maxHr:162,cal:309,name:"Evening Run"},
+  {date:"2026-03-01",km:12.25,pace:7.44,hr:160,maxHr:187,cal:578,name:"Morning Run"},
+  {date:"2026-03-03",km:6.01,pace:8.937,hr:139,maxHr:148,cal:317,name:"Night Run"},
+  {date:"2026-03-04",km:5.62,pace:7.854,hr:152,maxHr:163,cal:282,name:"Evening Run"},
+  {date:"2026-03-06",km:3.23,pace:7.691,hr:154,maxHr:189,cal:164,name:"Evening Run"},
+  {date:"2026-03-08",km:15.7,pace:7.579,hr:154,maxHr:190,cal:735,name:"Morning Run"},
+  {date:"2026-03-09",km:3.53,pace:8.19,hr:143,maxHr:153,cal:174,name:"Evening Run"},
+  {date:"2026-03-10",km:4.48,pace:7.141,hr:159,maxHr:175,cal:228,name:"Evening Run"},
+  {date:"2026-03-15",km:11.09,pace:7.0,hr:156,maxHr:174,cal:523,name:"Morning Run"},
+  {date:"2026-03-17",km:4.93,pace:7.065,hr:151,maxHr:172,cal:226,name:"Evening Run"},
+  {date:"2026-03-18",km:6.01,pace:7.474,hr:147,maxHr:160,cal:266,name:"Afternoon Run"},
+  {date:"2026-03-20",km:4.22,pace:7.104,hr:149,maxHr:167,cal:194,name:"Evening Run"},
+  {date:"2026-03-22",km:21.23,pace:6.164,hr:176,maxHr:184,cal:1031,name:"Half Marathon"},
+  {date:"2026-03-28",km:9.85,pace:7.407,hr:160,maxHr:175,cal:428,name:"Morning Run"},
+  {date:"2026-03-30",km:4.68,pace:8.202,hr:145,maxHr:153,cal:224,name:"Evening Run"},
+  {date:"2026-03-31",km:6.5,pace:7.375,hr:149,maxHr:154,cal:295,name:"Afternoon Run"},
+  {date:"2026-04-03",km:4.0,pace:7.572,hr:143,maxHr:153,cal:185,name:"Afternoon Run"},
+  {date:"2026-04-05",km:12.17,pace:6.864,hr:161,maxHr:176,cal:551,name:"Morning Run"},
+  {date:"2026-04-07",km:6.01,pace:7.514,hr:142,maxHr:151,cal:266,name:"Evening Run"},
+  {date:"2026-04-08",km:2.01,pace:7.265,hr:153,maxHr:158,cal:92,name:"Evening Run"},
+  {date:"2026-04-09",km:7.05,pace:7.175,hr:148,maxHr:171,cal:323,name:"Afternoon Run"},
+  {date:"2026-04-12",km:14.13,pace:6.968,hr:160,maxHr:169,cal:684,name:"Morning Run"},
+  {date:"2026-04-14",km:7.0,pace:7.47,hr:147,maxHr:156,cal:313,name:"Evening Run"},
+  {date:"2026-04-16",km:7.01,pace:7.228,hr:146,maxHr:175,cal:319,name:"Afternoon Run"}
 ];
 
-var PACE_INFO = "ER: 7:10–7:40 хв/км · пульс 140–150\nLR: 7:00–7:30 хв/км · пульс 145–158\nTR: 6:05–6:20 хв/км · пульс 168–176";
+// ── PLAN ──
+var PLAN = [
+  {wk:1,date:"30.03",mon:"Strength",tue:"6 ER",wed:"Відпочинок",thu:"Strength+5 ER",fri:"Відпочинок",sat:"4 ER",sun:"12 LR"},
+  {wk:2,date:"06.04",mon:"Strength",tue:"6 ER",wed:"Відпочинок",thu:"Strength+6 ER",fri:"Відпочинок",sat:"5 ER",sun:"14 LR"},
+  {wk:3,date:"13.04",mon:"Strength",tue:"5 ER",wed:"Відпочинок",thu:"Strength+5 ER",fri:"Відпочинок",sat:"4 ER",sun:"10 LR"},
+  {wk:4,date:"20.04",mon:"Strength",tue:"6 ER",wed:"Відпочинок",thu:"Strength+7 ER",fri:"Відпочинок",sat:"5 ER",sun:"16 LR"},
+  {wk:5,date:"27.04",mon:"Strength",tue:"7 ER",wed:"Відпочинок",thu:"Strength+7 ER",fri:"Відпочинок",sat:"5 ER",sun:"18 LR"},
+  {wk:6,date:"04.05",mon:"Strength",tue:"6 ER",wed:"Відпочинок",thu:"Strength+6 ER",fri:"Відпочинок",sat:"5 ER",sun:"14 LR"},
+  {wk:7,date:"11.05",mon:"Strength",tue:"7 ER",wed:"Відпочинок",thu:"Strength+8 ER",fri:"Відпочинок",sat:"6 ER",sun:"20 LR"},
+  {wk:8,date:"18.05",mon:"Strength",tue:"6 ER",wed:"Відпочинок",thu:"Strength+6 ER",fri:"Відпочинок",sat:"5 ER",sun:"14 LR"},
+  {wk:9,date:"25.05",mon:"Strength",tue:"7 ER",wed:"Відпочинок",thu:"Strength+8 ER",fri:"Відпочинок",sat:"6 ER",sun:"20 LR"},
+  {wk:10,date:"01.06",mon:"Strength",tue:"8 ER",wed:"Відпочинок",thu:"Strength+6 TR",fri:"Відпочинок",sat:"6 ER",sun:"22 LR"},
+  {wk:11,date:"08.06",mon:"Strength",tue:"8 ER",wed:"Відпочинок",thu:"Strength+7 TR",fri:"Відпочинок",sat:"6 ER",sun:"24 LR"},
+  {wk:12,date:"15.06",mon:"Strength",tue:"9 ER",wed:"Відпочинок",thu:"Strength+7 TR",fri:"Відпочинок",sat:"7 ER",sun:"20 LR"},
+  {wk:13,date:"22.06",mon:"Strength",tue:"9 ER",wed:"Відпочинок",thu:"Strength+8 TR",fri:"Відпочинок",sat:"8 ER",sun:"26 LR"},
+  {wk:14,date:"29.06",mon:"Strength",tue:"10 ER",wed:"Відпочинок",thu:"Strength+8 TR",fri:"Відпочинок",sat:"8 ER",sun:"28 LR"},
+  {wk:15,date:"06.07",mon:"Strength",tue:"10 ER",wed:"Відпочинок",thu:"Strength+9 TR",fri:"Відпочинок",sat:"8 ER",sun:"30 LR"},
+  {wk:16,date:"13.07",mon:"Strength",tue:"8 ER",wed:"Відпочинок",thu:"Strength+6 ER",fri:"Відпочинок",sat:"6 ER",sun:"22 LR"},
+  {wk:17,date:"20.07",mon:"Strength",tue:"9 ER",wed:"Відпочинок",thu:"Strength+8 TR",fri:"Відпочинок",sat:"7 ER",sun:"28 LR"},
+  {wk:18,date:"27.07",mon:"Strength",tue:"9 ER",wed:"Відпочинок",thu:"Strength+8 TR",fri:"Відпочинок",sat:"7 ER",sun:"30 LR"},
+  {wk:19,date:"03.08",mon:"Strength",tue:"10 ER",wed:"Відпочинок",thu:"Strength+10 TR",fri:"Відпочинок",sat:"8 ER",sun:"32 LR"},
+  {wk:20,date:"10.08",mon:"Strength",tue:"9 ER",wed:"Відпочинок",thu:"Strength+8 TR",fri:"Відпочинок",sat:"7 ER",sun:"28 LR"},
+  {wk:21,date:"17.08",mon:"Strength",tue:"8 ER",wed:"Відпочинок",thu:"Strength+8 TR",fri:"Відпочинок",sat:"6 ER",sun:"26 LR"},
+  {wk:22,date:"24.08",mon:"Strength",tue:"8 ER",wed:"Відпочинок",thu:"Strength+6 ER",fri:"Відпочинок",sat:"6 ER",sun:"22 LR"},
+  {wk:23,date:"31.08",mon:"Strength",tue:"7 ER",wed:"Відпочинок",thu:"Strength+6 ER",fri:"Відпочинок",sat:"5 ER",sun:"16 LR"},
+  {wk:24,date:"07.09",mon:"Strength",tue:"6 ER",wed:"Відпочинок",thu:"Strength+5 ER",fri:"Відпочинок",sat:"5 ER",sun:"12 LR"},
+  {wk:25,date:"14.09",mon:"S легкі",tue:"5 ER",wed:"Відпочинок",thu:"4 ER",fri:"Відпочинок",sat:"4 ER",sun:"8 LR"},
+  {wk:26,date:"21.09",mon:"S легкі",tue:"4 ER",wed:"Відпочинок",thu:"3 ER легко",fri:"Відпочинок",sat:"Відпочинок",sun:"МАРАФОН 🏁"}
+];
 
-var MARATHON_DATE = new Date('2026-09-27T09:00:00');
-var PLAN_START = new Date('2026-03-30');
+var PLAN_START = new Date('2026-03-30T00:00:00');
+var MARATHON = new Date('2026-09-27T09:00:00');
 var MONTHS = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
-var DAYNAMES = ['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
-var chatHist = [];
-var viewWk = 0; // 0 = current week
+var MO_SHORT = ['Січ','Лют','Бер','Кві','Тра','Чер','Лип','Сер','Вер','Жов','Лис','Гру'];
+var viewWk = 0;
 
 function stGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 function stSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
-function getKey(){return stGet('mk')||'';}
-function setKey(k){stSet('mk',k);}
+
+function fmtPace(p){var m=Math.floor(p);var s=Math.round((p-m)*60);return m+':'+(s<10?'0':'')+s;}
+function fmtTime(secs){var h=Math.floor(secs/3600);var m=Math.floor((secs%3600)/60);var s=secs%60;return h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;}
+function fmtDate(ds){var d=new Date(ds);return d.getDate()+' '+MO_SHORT[d.getMonth()];}
 
 // NAV
 document.querySelectorAll('.nb').forEach(function(btn){
@@ -401,249 +456,444 @@ document.querySelectorAll('.nb').forEach(function(btn){
   });
 });
 
-// COUNTDOWN
+// COUNTDOWN (seconds precision)
 function tick(){
-  var diff=MARATHON_DATE-new Date();
-  if(diff<=0){document.getElementById('cdD').textContent='🏁';return;}
+  var diff=MARATHON-new Date();
+  if(diff<=0){['cdD','cdH','cdM','cdS'].forEach(function(id){document.getElementById(id).textContent='0';});return;}
   document.getElementById('cdD').textContent=String(Math.floor(diff/86400000)).padStart(3,'0');
   document.getElementById('cdH').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
   document.getElementById('cdM').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cdS').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
-tick(); setInterval(tick,30000);
+tick(); setInterval(tick,1000);
 
 var nd=new Date();
 document.getElementById('hdate').textContent=nd.getDate()+' '+MONTHS[nd.getMonth()];
 
-// CURRENT WEEK
-function getCurrentWk(){
+// STATS CALCULATIONS
+function getAllRuns(){return STRAVA;}
+function getRecentRuns(days){
+  var cutoff=new Date(); cutoff.setDate(cutoff.getDate()-days);
+  var cs=cutoff.toISOString().split('T')[0];
+  return STRAVA.filter(function(r){return r.date>=cs;});
+}
+function getLongRuns(){return STRAVA.filter(function(r){return r.km>=10;});}
+
+function getWeeklyKm(wkIdx){
+  var ws=new Date(PLAN_START.getTime()+wkIdx*604800000);
+  var we=new Date(ws.getTime()+7*86400000);
+  var wss=ws.toISOString().split('T')[0];
+  var wes=we.toISOString().split('T')[0];
+  return STRAVA.filter(function(r){return r.date>=wss&&r.date<wes;}).reduce(function(s,r){return s+r.km;},0);
+}
+
+function getPlanWeekKm(wkIdx){
+  var w=PLAN[wkIdx];
+  var keys=['mon','tue','wed','thu','fri','sat','sun'];
+  var total=0;
+  keys.forEach(function(k){
+    var v=w[k]||'';
+    var m=v.match(/(\d+)\s*(ER|LR|TR)/);
+    if(m)total+=parseInt(m[1]);
+  });
+  return total;
+}
+
+function getCurrentWkIdx(){
   var e=Math.max(0,new Date()-PLAN_START);
   return Math.max(0,Math.min(25,Math.floor(e/604800000)));
 }
 
-function getPlanWeek(idx){return PLAN[idx];}
+// ── MARATHON PREDICTION ──
+function computePrediction(){
+  var longRuns=getLongRuns();
+  var recent4wk=getRecentRuns(28).filter(function(r){return r.km>=3&&r.pace<12;});
+  var recent8wk=getRecentRuns(56).filter(function(r){return r.km>=5&&r.pace<12;});
 
-function getPhaseLabel(wk){
-  if(wk<=2)return 'Початок';
-  if(wk<=8)return 'Розвиток';
-  if(wk<=9)return 'Розвиток';
-  if(wk<=14)return 'Темпова фаза';
-  if(wk<=19)return 'Пік';
-  if(wk<=23)return 'Спад';
-  return 'Тейпер';
+  // Method 1: Riegel formula from longest run
+  // T2 = T1 * (D2/D1)^1.06
+  var riegelPace=null;
+  if(longRuns.length>0){
+    var best=longRuns.reduce(function(a,b){return a.km>b.km?a:b;});
+    var t1=best.km*best.pace*60; // seconds
+    var d2=42.195;
+    var t2=t1*Math.pow(d2/best.km,1.06);
+    riegelPace=t2/d2/60; // min/km
+  }
+
+  // Method 2: HR-based efficiency (recent runs)
+  var hrPace=null;
+  if(recent4wk.length>=3){
+    var withHr=recent4wk.filter(function(r){return r.hr>100;});
+    if(withHr.length>=2){
+      var avgPace=withHr.reduce(function(s,r){return s+r.pace;},0)/withHr.length;
+      var avgHr=withHr.reduce(function(s,r){return s+r.hr;},0)/withHr.length;
+      // Marathon pace will be about 15% slower than recent average (fatigue)
+      // Adjust for HR: if HR is high relative to effort, add penalty
+      var hrRatio=avgHr/185; // 185 = estimated max HR
+      hrPace=avgPace*(1+hrRatio*0.08+0.10);
+    }
+  }
+
+  // Method 3: trend in long runs
+  var trendPace=null;
+  if(longRuns.length>=2){
+    var sorted=longRuns.slice().sort(function(a,b){return a.date<b.date?-1:1;});
+    var last3=sorted.slice(-3);
+    var avgLong=last3.reduce(function(s,r){return s+r.pace;},0)/last3.length;
+    // Marathon is longer, add ~8% fatigue penalty over 42km vs recent longs
+    var avgLongKm=last3.reduce(function(s,r){return s+r.km;},0)/last3.length;
+    var fatigueBonus=Math.max(0,(42.195-avgLongKm)/avgLongKm)*0.15;
+    trendPace=avgLong*(1+fatigueBonus);
+  }
+
+  // Combine methods with weights
+  var methods=[];
+  if(riegelPace)methods.push({p:riegelPace,w:0.5});
+  if(hrPace)methods.push({p:hrPace,w:0.3});
+  if(trendPace)methods.push({p:trendPace,w:0.2});
+
+  var finalPace,confidence;
+  if(methods.length===0){finalPace=7.5;confidence=20;}
+  else{
+    var totalW=methods.reduce(function(s,m){return s+m.w;},0);
+    finalPace=methods.reduce(function(s,m){return s+m.p*m.w;},0)/totalW;
+    confidence=Math.min(90,40+longRuns.length*8+recent4wk.length*3);
+  }
+
+  // Training phase adjustment: we're early in training, current pace will improve
+  // By race day (23 weeks of training), expect ~5-8% improvement
+  var wkIdx=getCurrentWkIdx();
+  var remainingWks=26-wkIdx;
+  var improvementFactor=1-(remainingWks*0.003); // ~0.3% per week improvement
+  improvementFactor=Math.max(0.88,improvementFactor);
+  var projectedPace=finalPace*improvementFactor;
+
+  var marathonSecs=Math.round(projectedPace*42.195*60);
+  var avgHrRecent=recent4wk.filter(function(r){return r.hr>100;}).reduce(function(s,r,_,a){return s+r.hr/a.length;},0)||153;
+  var estFinishHr=Math.min(190,avgHrRecent+12); // marathon avg HR higher than training
+
+  var startTime=new Date('2026-09-27T09:00:00');
+  var finishTime=new Date(startTime.getTime()+marathonSecs*1000);
+  var finishStr=String(finishTime.getHours()).padStart(2,'0')+':'+String(finishTime.getMinutes()).padStart(2,'0');
+
+  return {
+    pace: projectedPace,
+    secs: marathonSecs,
+    confidence: confidence,
+    hr: Math.round(estFinishHr),
+    finishTime: finishStr,
+    longRuns: longRuns,
+    recent4wk: recent4wk,
+    riegelPace: riegelPace,
+    trendPace: trendPace
+  };
 }
 
-// Parse plan entry into structured days
-function parseDayEntry(entry, dayKey){
-  var val = entry[dayKey];
-  if(!val||val==='Відпочинок') return {type:'rest',label:'Відпочинок',km:0,badge:'br'};
-  if(val==='МАРАФОН 🏁') return {type:'marathon',label:'МАРАФОН 🏁',km:42,badge:'bm'};
+// ── HOME ──
+function buildHome(){
+  var wkIdx=getCurrentWkIdx();
+  var wksLeft=Math.ceil((MARATHON-new Date())/604800000);
+  var total=STRAVA.reduce(function(s,r){return s+r.km;},0);
+  var runs2026=STRAVA.filter(function(r){return r.date>='2026-01-01';});
+  var recentWithPace=STRAVA.filter(function(r){return r.pace>5&&r.pace<12&&r.km>1;});
+  var avgPace=recentWithPace.length?recentWithPace.reduce(function(s,r){return s+r.pace;},0)/recentWithPace.length:0;
+  var recentWithHr=STRAVA.filter(function(r){return r.hr>100;});
+  var avgHr=recentWithHr.length?recentWithHr.reduce(function(s,r){return s+r.hr;},0)/recentWithHr.length:0;
 
-  var hasStrength = val.indexOf('Strength')>=0 || val.indexOf('S легкі')>=0;
-  var runPart = val.replace('Strength+','').replace('S легкі','').trim();
-  var km=0, type='easy', badge='be', label=runPart;
+  document.getElementById('hmTotalKm').textContent=Math.round(total);
+  document.getElementById('hmWksLeft').textContent=wksLeft>0?wksLeft:'🏁';
+  document.getElementById('hmAvgPace').textContent=avgPace?fmtPace(avgPace):'—';
+  document.getElementById('hmAvgHr').textContent=avgHr?Math.round(avgHr):'—';
+  document.getElementById('hmRuns').textContent=STRAVA.length;
 
-  if(runPart==='Strength'||runPart==='S легкі'||runPart===''){
-    return {type:'strength',label:hasStrength?'Силові':'—',km:0,badge:'bs',combo:false};
-  }
+  // Progress bar
+  var elapsed=Math.max(0,new Date()-PLAN_START);
+  var totalDur=MARATHON-PLAN_START;
+  var pct=Math.min(100,Math.round((elapsed/totalDur)*100));
+  var phases=['База','Розвиток','Темп','Пік','Спад','Тейпер'];
+  var phaseIdx=wkIdx<=2?0:wkIdx<=8?1:wkIdx<=13?2:wkIdx<=18?3:wkIdx<=22?4:5;
+  document.getElementById('phaseLabel').textContent=phases[phaseIdx]+' · тиждень '+(wkIdx+1)+'/26';
+  document.getElementById('progPct').textContent=pct+'%';
+  setTimeout(function(){document.getElementById('progBar').style.width=pct+'%';},200);
 
-  var match = runPart.match(/^(\d+)\s*(ER|LR|TR|shakeout)/);
-  if(match){
-    km=parseInt(match[1]);
-    if(match[2]==='LR'){type='long';badge='bl';label=km+' км LR';}
-    else if(match[2]==='TR'){type='tempo';badge='bt';label=km+' км TR';}
-    else{type='easy';badge='be';label=km+' км ER';}
-  } else if(runPart.indexOf('shakeout')>=0){
-    var m2=runPart.match(/(\d+)/);
-    km=m2?parseInt(m2[1]):3;
-    type='easy';badge='be';label=km+' км легко';
-  } else if(runPart==='Rest'){
-    return {type:'rest',label:'Відпочинок',km:0,badge:'br'};
-  }
+  // Milestones
+  var ms=[{l:'Старт',p:0},{l:'Тиж 7',p:27},{l:'Пік',p:58},{l:'Тейпер',p:85},{l:'🏁',p:100}];
+  document.getElementById('milestones').innerHTML=ms.map(function(m){
+    return '<div class="prog-ms'+(pct>=m.p?' done':'')+'">'+(pct>=m.p?'✓ ':'')+m.l+'</div>';
+  }).join('');
 
-  if(hasStrength){
-    return {type:type,label:'Силові + '+label,km:km,badge:badge,combo:true};
-  }
-  return {type:type,label:label,km:km,badge:badge,combo:false};
+  // Today plan
+  buildTodayPlan(wkIdx);
+  buildHomePri(wkIdx);
 }
 
-function getWkDates(wkIdx){
-  // plan starts Mon Mar 30
-  var start = new Date(PLAN_START.getTime()+wkIdx*604800000);
-  return [0,1,2,3,4,5,6].map(function(i){
-    return new Date(start.getTime()+i*86400000);
+function buildHomePri(wkIdx){
+  if(wkIdx>=26){document.getElementById('homePri').innerHTML='<div style="color:var(--dim);font-size:13px">Марафон! 🏅</div>';return;}
+  var w=PLAN[wkIdx];
+  var lrKm=(w.sun.match(/(\d+)/)||['','?'])[1];
+  var trDay=w.thu;
+  var trKm=trDay.indexOf('TR')>=0?(trDay.match(/(\d+)\s*TR/)||['','?'])[1]:null;
+  var html='<div class="pri hi"><span class="pnum">01</span><div><div class="ptxt">Довга пробіжка '+lrKm+' км у неділю</div><div class="ptag">7:00–7:30 хв/км · пульс 145–158</div></div></div>';
+  if(trKm){html+='<div class="pri me"><span class="pnum">02</span><div><div class="ptxt">Темповий '+trKm+' км у четвер</div><div class="ptag">6:05–6:20 хв/км · пульс 168–176</div></div></div>';}
+  html+='<div class="pri lo"><span class="pnum">03</span><div><div class="ptxt">Силові тренування 2x на тиждень</div><div class="ptag">Пн + перед бігом Чт</div></div></div>';
+  document.getElementById('homePri').innerHTML=html;
+}
+
+function buildTodayPlan(wkIdx){
+  if(wkIdx>=26){document.getElementById('todayBox').innerHTML='Марафон відбігся! 🏅';return;}
+  var dow=new Date().getDay();
+  var planDow=dow===0?6:dow-1;
+  var keys=['mon','tue','wed','thu','fri','sat','sun'];
+  var w=PLAN[wkIdx];
+  var val=w[keys[planDow]];
+  var isRest=!val||val==='Відпочинок';
+  if(val==='МАРАФОН 🏁'){
+    document.getElementById('todayBox').innerHTML='<span class="bdg bm">МАРАФОН 🏁</span>';
+  } else if(isRest){
+    document.getElementById('todayBox').innerHTML='<span class="bdg br">Відпочинок</span><div style="font-size:11px;color:var(--dim);margin-top:5px">Стретчинг, пінний ролик, достатньо сну 🧘</div>';
+  } else {
+    var hasStr=val.indexOf('Strength')>=0||val.indexOf('S легкі')>=0;
+    var runPart=val.replace('Strength+','').replace('S легкі','').trim();
+    var isLR=runPart.indexOf('LR')>=0, isTR=runPart.indexOf('TR')>=0;
+    var badge=isLR?'bl':isTR?'bt':'be';
+    var paceHint=isLR?'7:00–7:30 · HR 145-158':isTR?'6:05–6:20 · HR 168-176':'7:10–7:40 · HR 140-150';
+    document.getElementById('todayBox').innerHTML=
+      (hasStr?'<span class="bdg bs">Силові</span> + ':'')+'<span class="bdg '+badge+'">'+runPart+'</span>'+
+      '<div style="font-size:11px;color:var(--dim);font-family:DM Mono,monospace;margin-top:5px">'+paceHint+'</div>';
+  }
+}
+
+// ── DASHBOARD ──
+function buildDash(){
+  var total=STRAVA.reduce(function(s,r){return s+r.km;},0);
+  var jan2026=STRAVA.filter(function(r){return r.date>='2026-01-01';});
+  var janKm=jan2026.reduce(function(s,r){return s+r.km;},0);
+  var longs=getLongRuns();
+  document.getElementById('dTotalKm').textContent=Math.round(total);
+  document.getElementById('dSinceJan').textContent=Math.round(janKm)+' км з 2026';
+  document.getElementById('dRuns').textContent=STRAVA.length;
+  document.getElementById('dLongRuns').textContent=longs.length+' довгих';
+
+  // 4-week stats
+  var r4=getRecentRuns(28).filter(function(r){return r.km>1&&r.pace<12;});
+  var r4hr=r4.filter(function(r){return r.hr>100;});
+  var avg4pace=r4.length?r4.reduce(function(s,r){return s+r.pace;},0)/r4.length:0;
+  var avg4hr=r4hr.length?r4hr.reduce(function(s,r){return s+r.hr;},0)/r4hr.length:0;
+  // weekly km last 4 weeks
+  var wkIdx=getCurrentWkIdx();
+  var wk4km=0;
+  for(var i=Math.max(0,wkIdx-3);i<=wkIdx;i++){wk4km+=getWeeklyKm(i);}
+  var avg4wkm=wk4km/Math.min(4,wkIdx+1);
+  document.getElementById('d4Pace').textContent=avg4pace?fmtPace(avg4pace):'—';
+  document.getElementById('d4Hr').textContent=avg4hr?Math.round(avg4hr):'—';
+  document.getElementById('d4Wkm').textContent=Math.round(avg4wkm);
+
+  // Trend bars (8 weeks)
+  var maxKm=0;
+  var weekData=[];
+  for(var wi=Math.max(0,wkIdx-5);wi<=Math.min(25,wkIdx+2);wi++){
+    var actual=getWeeklyKm(wi);
+    var planned=getPlanWeekKm(wi);
+    if(actual>maxKm)maxKm=actual;
+    if(planned>maxKm)maxKm=planned;
+    weekData.push({wi:wi,actual:actual,planned:planned,isCur:wi===wkIdx});
+  }
+  if(maxKm===0)maxKm=1;
+  var barsHtml='';
+  weekData.forEach(function(d){
+    var ah=Math.max(4,Math.round((d.actual/maxKm)*52));
+    var ph=Math.round((d.planned/maxKm)*52);
+    var wLabel='W'+(d.wi+1);
+    barsHtml+='<div class="trend-bar-wrap">';
+    barsHtml+='<div style="position:relative;width:100%;height:52px;display:flex;align-items:flex-end;gap:1px">';
+    barsHtml+='<div style="flex:1;height:'+ph+'px;background:var(--s3);border-radius:2px 2px 0 0;opacity:.5"></div>';
+    if(d.actual>0)barsHtml+='<div style="flex:1;height:'+ah+'px;background:'+(d.isCur?'var(--acc)':'var(--acc2)')+';border-radius:2px 2px 0 0;opacity:'+(d.isCur?'1':'0.8')+'"></div>';
+    barsHtml+='</div>';
+    barsHtml+='<div class="trend-lbl">'+wLabel+'</div></div>';
   });
+  document.getElementById('trendBars').innerHTML=barsHtml;
+
+  // Recent runs
+  var recent=STRAVA.slice().reverse().slice(0,8);
+  var runsHtml='';
+  recent.forEach(function(r){
+    var badge=r.km>=15?'rb-long':r.km>=8?'rb-easy':'rb-short';
+    var badgeTxt=r.km>=15?'Довга':r.km>=8?'Середня':'Коротка';
+    runsHtml+='<div class="run-item">';
+    runsHtml+='<div class="run-date">'+fmtDate(r.date)+'</div>';
+    runsHtml+='<div class="run-km">'+r.km+'</div>';
+    runsHtml+='<div class="run-stats">';
+    if(r.pace>0&&r.pace<12)runsHtml+=fmtPace(r.pace)+'/км';
+    if(r.hr>100)runsHtml+=' · '+Math.round(r.hr)+' уд/хв';
+    runsHtml+='</div>';
+    runsHtml+='<span class="run-badge '+badge+'">'+badgeTxt+'</span></div>';
+  });
+  document.getElementById('recentRuns').innerHTML=runsHtml;
 }
 
-// INIT
-function init(){
-  var curIdx=getCurrentWk();
-  viewWk=curIdx;
-  var wksLeft=Math.ceil((MARATHON_DATE-new Date())/604800000);
-  document.getElementById('wkleft').textContent=wksLeft>0?wksLeft:'🏁';
-  var now=new Date();
-  var elapsed=Math.max(0,now-PLAN_START);
-  var total=MARATHON_DATE-PLAN_START;
-  var pct=Math.min(100,Math.round((elapsed/total)*100));
-  document.getElementById('ppct').textContent=pct+'%';
-  setTimeout(function(){document.getElementById('pfill').style.width=pct+'%';},200);
-  document.getElementById('wkNum').textContent=curIdx+1;
-  document.getElementById('phaseName').textContent=getPhaseLabel(curIdx);
-  updateLogStats();
-  buildHomePriorities(curIdx);
-  buildTodayPlan(curIdx);
-  renderPlanWeek(curIdx);
-}
+// ── PREDICTION ──
+function buildPrediction(){
+  var pred=computePrediction();
+  document.getElementById('predTime').textContent=fmtTime(pred.secs);
+  document.getElementById('predLabel').textContent='на основі '+STRAVA.length+' пробіжок зі Strava';
+  document.getElementById('predPace').textContent=fmtPace(pred.pace);
+  document.getElementById('predHr').textContent=pred.hr+'';
+  document.getElementById('predFinish').textContent=pred.finishTime;
 
-function buildHomePriorities(idx){
-  if(idx>=PLAN.length){document.getElementById('homePriorities').innerHTML='<div style="color:var(--dim);font-size:13px">Марафон відбігся! 🏅</div>';return;}
-  var w=PLAN[idx];
-  var days=[w.mon,w.tue,w.wed,w.thu,w.fri,w.sat,w.sun];
-  var lrDay=days.find(function(d){return d&&d.indexOf('LR')>=0;});
-  var trDay=days.find(function(d){return d&&d.indexOf('TR')>=0;});
-  var lrKm=lrDay?(lrDay.match(/(\d+)/)||['','?'])[1]:'?';
-  var trKm=trDay?(trDay.match(/(\d+)/)||['','?'])[1]:null;
+  setTimeout(function(){document.getElementById('confFill').style.width=pred.confidence+'%';},300);
+  document.getElementById('confPct').textContent=pred.confidence+'%';
 
-  var html='';
-  html+='<div class="pri hi"><span class="pnum">01</span><div><div class="ptxt">Довга пробіжка '+lrKm+' км у неділю</div><div class="ptag">LR · 7:00–7:30 хв/км · пульс 145–158</div></div></div>';
-  if(trKm){
-    html+='<div class="pri me"><span class="pnum">02</span><div><div class="ptxt">Темповий біг '+trKm+' км у четвер</div><div class="ptag">TR · 6:05–6:20 хв/км · пульс 168–176</div></div></div>';
-  } else {
-    var erDays=days.filter(function(d){return d&&d.indexOf('ER')>=0;});
-    var erKms=erDays.map(function(d){return (d.match(/(\d+)/)||['','?'])[1];});
-    html+='<div class="pri me"><span class="pnum">02</span><div><div class="ptxt">Легкі пробіжки: '+erKms.join(', ')+' км</div><div class="ptag">ER · 7:10–7:40 хв/км · пульс 140–150</div></div></div>';
+  // Insights
+  var insights='';
+  var longRuns=getLongRuns();
+  var best=longRuns.length?longRuns.reduce(function(a,b){return a.km>b.km?a:b;}):null;
+  if(best){
+    insights+='<div class="insight-box"><div class="insight-title">На основі найдовшої пробіжки</div><div class="insight-txt">'+
+      best.km+' км з темпом '+fmtPace(best.pace)+'/км ('+fmtDate(best.date)+') → формула Рігеля дає марафон за приблизно '+
+      fmtTime(Math.round(best.km*best.pace*60*Math.pow(42.195/best.km,1.06)))+
+      '</div></div>';
   }
-  html+='<div class="pri lo"><span class="pnum">03</span><div><div class="ptxt">Силові тренування — 2 рази</div><div class="ptag">Понеділок + четвер (перед бігом)</div></div></div>';
-  document.getElementById('homePriorities').innerHTML=html;
-}
-
-function buildTodayPlan(idx){
-  if(idx>=PLAN.length){document.getElementById('todayPlan').innerHTML='Ти вже фінішерка! 🏅';return;}
-  var todayDow=new Date().getDay(); // 0=sun
-  var planDow=todayDow===0?6:todayDow-1; // convert to Mon=0
-  var dayKeys=['mon','tue','wed','thu','fri','sat','sun'];
-  var w=PLAN[idx];
-  var val=w[dayKeys[planDow]];
-  var parsed=parseDayEntry(w,dayKeys[planDow]);
-  var today=new Date();
-
-  if(parsed.type==='rest'){
-    document.getElementById('todayPlan').innerHTML='<span class="bdg br">Відпочинок</span><br><span style="color:var(--dim);font-size:12px;margin-top:6px;display:block">Стретчинг, піна, достатньо сну 🧘</span>';
-  } else if(parsed.type==='marathon'){
-    document.getElementById('todayPlan').innerHTML='<span class="bdg bm">МАРАФОН 🏁</span><br><span style="color:var(--acc);font-size:14px;font-family:Unbounded,sans-serif;margin-top:8px;display:block">Варшавський марафон!</span>';
-  } else {
-    document.getElementById('todayPlan').innerHTML='<span class="bdg '+(parsed.badge||'be')+'">'+parsed.label+'</span>'+
-      '<div style="font-size:12px;color:var(--dim);margin-top:6px;font-family:DM Mono,monospace;line-height:1.7">'+
-      (parsed.type==='long'?'Темп 7:00–7:30 · пульс 145–158':parsed.type==='tempo'?'Темп 6:05–6:20 · пульс 168–176':'Темп 7:10–7:40 · пульс 140–150')+
-      '</div>';
+  var r4=getRecentRuns(28).filter(function(r){return r.hr>100&&r.km>3;});
+  if(r4.length>=2){
+    var avgP=r4.reduce(function(s,r){return s+r.pace;},0)/r4.length;
+    var avgH=r4.reduce(function(s,r){return s+r.hr;},0)/r4.length;
+    insights+='<div class="insight-box"><div class="insight-title">Поточна форма (останні 4 тижні)</div><div class="insight-txt">'+
+      'Середній темп '+fmtPace(avgP)+'/км при пульсі '+Math.round(avgH)+' уд/хв. '+
+      'З ростом тренованості темп знижується при тому ж пульсі — це хороший знак прогресу.</div></div>';
   }
+  insights+='<div class="insight-box"><div class="insight-title">Очікуване покращення</div><div class="insight-txt">'+
+    'До марафону залишилось '+(26-getCurrentWkIdx())+' тижнів тренувань. '+
+    'При стабільному виконанні плану прогноз покращиться приблизно на 5–10 хвилин.</div></div>';
+  document.getElementById('insightsBox').innerHTML=insights;
+
+  // Distance predictions (Riegel from best long run)
+  if(best){
+    var dists=[{d:5,n:'5 км'},{d:10,n:'10 км'},{d:21.0975,n:'Напів'}];
+    var distHtml='';
+    dists.forEach(function(di){
+      var t=best.km*best.pace*60*Math.pow(di.d/best.km,1.06);
+      var pace=t/di.d/60;
+      distHtml+='<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--brd);font-size:13px;">';
+      distHtml+='<span style="color:var(--dim)">'+di.n+'</span>';
+      distHtml+='<span style="font-family:DM Mono,monospace;color:var(--txt)">'+fmtTime(Math.round(t))+'</span>';
+      distHtml+='<span style="font-family:DM Mono,monospace;color:var(--dim)">'+fmtPace(pace)+'/км</span></div>';
+    });
+    distHtml+='<div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;">';
+    distHtml+='<span style="color:var(--acc)">Марафон</span>';
+    distHtml+='<span style="font-family:DM Mono,monospace;color:var(--acc);font-weight:500">'+fmtTime(pred.secs)+'</span>';
+    distHtml+='<span style="font-family:DM Mono,monospace;color:var(--acc2)">'+fmtPace(pred.pace)+'/км</span></div>';
+    document.getElementById('distPreds').innerHTML=distHtml;
+  }
+
+  // Trend insight
+  var lrs=getLongRuns().slice().sort(function(a,b){return a.date<b.date?-1:1;});
+  var trendTxt='';
+  if(lrs.length>=2){
+    var first3avg=lrs.slice(0,Math.min(3,lrs.length)).reduce(function(s,r){return s+r.pace;},0)/Math.min(3,lrs.length);
+    var last3avg=lrs.slice(-Math.min(3,lrs.length)).reduce(function(s,r){return s+r.pace;},0)/Math.min(3,lrs.length);
+    var diff=first3avg-last3avg;
+    if(diff>0.05){
+      trendTxt='📈 Твій темп покращується! Різниця між першими і останніми довгими пробіжками — '+Math.round(diff*60)+' секунд/км. Продовжуй в тому ж дусі — прогноз буде ставати точнішим і кращим з кожним тижнем.';
+    } else if(diff<-0.05){
+      trendTxt='📊 Темп останніх довгих пробіжок трохи вищий — можливо це фатига від накопиченого об\'єму. Це нормально для цієї фази підготовки. Слідкуй за пульсом: якщо він теж росте — дай більше відновлення.';
+    } else {
+      trendTxt='📊 Твій темп стабільний — це хороший знак. Прогноз буде суттєво покращуватись коли ти додаси більше довгих пробіжок (20+ км) і темпових тренувань.';
+    }
+  } else {
+    trendTxt='Поки що є '+lrs.length+' довга пробіжка(ок). Прогноз стане точнішим з додаванням більше довгих пробіжок (15+ км) та темпових тренувань.';
+  }
+  document.getElementById('trendInsight').textContent=trendTxt;
 }
 
-// PLAN PAGE
-function renderPlanWeek(idx){
-  if(idx<0)idx=0;
-  if(idx>25)idx=25;
+// ── PLAN ──
+function parseDayEntry(w,k){
+  var val=w[k]||'';
+  if(!val||val==='Відпочинок')return{type:'rest',label:'Відпочинок',km:0,badge:'br'};
+  if(val==='МАРАФОН 🏁')return{type:'marathon',label:'МАРАФОН 🏁',km:42,badge:'bm'};
+  var hasStr=val.indexOf('Strength')>=0||val.indexOf('S легкі')>=0;
+  var runPart=val.replace('Strength+','').replace('S легкі','').trim();
+  if(!runPart||runPart==='Strength')return{type:'strength',label:'Силові',km:0,badge:'bs'};
+  var m=runPart.match(/^(\d+)\s*(ER|LR|TR)/);
+  var km=0,type='easy',badge='be',label=runPart;
+  if(m){
+    km=parseInt(m[1]);
+    if(m[2]==='LR'){type='long';badge='bl';label=km+' км LR';}
+    else if(m[2]==='TR'){type='tempo';badge='bt';label=km+' км TR';}
+    else{label=km+' км ER';}
+  }
+  if(hasStr)return{type:type,label:'Силові + '+label,km:km,badge:badge,combo:true};
+  return{type:type,label:label,km:km,badge:badge};
+}
+
+function renderPlan(idx){
+  if(idx<0)idx=0;if(idx>25)idx=25;
   viewWk=idx;
   var w=PLAN[idx];
-  var curIdx=getCurrentWk();
-  document.getElementById('plantitle').textContent='Тиждень '+(idx+1)+' / 26'+(idx===curIdx?' ← зараз':'');
-  var dates=getWkDates(idx);
-  function fmt(d){return d.getDate()+' '+MONTHS[d.getMonth()];}
-  document.getElementById('planrange').textContent=fmt(dates[0])+' – '+fmt(dates[6])+(idx===25?' · МАРАФОН 🏁':'');
+  var curIdx=getCurrentWkIdx();
+  var isCur=idx===curIdx;
+  document.getElementById('plantitle').textContent='Тиждень '+(idx+1)+' / 26'+(isCur?' · зараз':'');
+  var ws=new Date(PLAN_START.getTime()+idx*604800000);
+  var we=new Date(ws.getTime()+6*86400000);
+  function fmt(d){return d.getDate()+' '+MO_SHORT[d.getMonth()];}
+  document.getElementById('planrange').textContent=fmt(ws)+' – '+fmt(we);
 
-  // Week summary
-  var dayKeys=['mon','tue','wed','thu','fri','sat','sun'];
-  var totalKm=0,erKm=0,trKm=0,lrKm=0,strCount=0;
-  dayKeys.forEach(function(k){
-    var p=parseDayEntry(w,k);
-    totalKm+=p.km;
-    if(p.type==='easy')erKm+=p.km;
-    if(p.type==='tempo')trKm+=p.km;
-    if(p.type==='long')lrKm+=p.km;
-    if(p.combo||p.type==='strength')strCount++;
-  });
+  var keys=['mon','tue','wed','thu','fri','sat','sun'];
+  var tkm=0;
+  keys.forEach(function(k){var p=parseDayEntry(w,k);tkm+=p.km;});
+  var planKm=getPlanWeekKm(idx);
+  var actualKm=getWeeklyKm(idx);
   document.getElementById('wsum').innerHTML=
-    '<div class="wsumitem"><div class="wsumv">'+totalKm+'</div><div class="wsuml">км всього</div></div>'+
-    '<div class="wsumitem"><div class="wsumv">'+erKm+'</div><div class="wsuml">км ER</div></div>'+
-    (trKm?'<div class="wsumitem"><div class="wsumv">'+trKm+'</div><div class="wsuml">км TR</div></div>':'')+
-    '<div class="wsumitem"><div class="wsumv">'+lrKm+'</div><div class="wsuml">км LR</div></div>'+
-    '<div class="wsumitem"><div class="wsumv">'+strCount+'</div><div class="wsuml">силові</div></div>';
+    '<div class="wsumitem"><div class="wsumv">'+planKm+'</div><div class="wsuml">план км</div></div>'+
+    (actualKm>0?'<div class="wsumitem" style="border:1px solid rgba(197,241,53,.2)"><div class="wsumv">'+Math.round(actualKm)+'</div><div class="wsuml">факт км</div></div>':'')+
+    '<div class="wsumitem"><div class="wsumv">'+(idx<=curIdx?'✓':'→')+'</div><div class="wsuml">'+(idx<curIdx?'виконано':idx===curIdx?'поточний':'наступний')+'</div></div>';
 
-  // Day rows
   var today=new Date();today.setHours(0,0,0,0);
+  var dayNames=['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
   var html='';
-  var dayLabels=['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
-  dayKeys.forEach(function(k,i){
-    var date=dates[i];
+  keys.forEach(function(k,i){
+    var date=new Date(ws.getTime()+i*86400000);
     var isToday=date.getTime()===today.getTime();
     var isPast=date<today;
-    var parsed=parseDayEntry(w,k);
-    var cls='dr'+(isToday?' tod':'')+(parsed.type==='rest'?' rst':'')+(isPast&&!isToday?' done':'');
-    html+='<div class="'+cls+'">';
-    html+='<div class="dl"><div class="dln">'+dayLabels[i]+'</div><div class="dld">'+date.getDate()+'.'+String(date.getMonth()+1).padStart(2,'0')+'</div>';
+    var p=parseDayEntry(w,k);
+    html+='<div class="dr'+(isToday?' tod':'')+(p.type==='rest'?' rst':'')+(isPast&&!isToday?' done':'')+'">';
+    html+='<div class="dl"><div class="dln">'+dayNames[i]+'</div><div class="dld">'+date.getDate()+'.'+(date.getMonth()+1<10?'0':'')+(date.getMonth()+1)+'</div>';
     if(isToday)html+='<div class="tdot"></div>';
-    else if(isPast&&parsed.type!=='rest')html+='<div class="ddone">✓</div>';
+    else if(isPast&&p.type!=='rest')html+='<div class="ddone">✓</div>';
     html+='</div>';
-    html+='<div class="dc"><span class="bdg '+parsed.badge+'">'+parsed.label+'</span>';
-    if(parsed.km>0&&parsed.type!=='marathon'){
-      var paceHint=parsed.type==='long'?'7:00–7:30 · HR 145-158':parsed.type==='tempo'?'6:05–6:20 · HR 168-176':'7:10–7:40 · HR 140-150';
-      html+='<div class="dkm">'+paceHint+'</div>';
+    html+='<div class="dc"><span class="bdg '+p.badge+'">'+p.label+'</span>';
+    if(p.km>0&&p.type!=='marathon'){
+      var ph=p.type==='long'?'7:00–7:30 · HR 145-158':p.type==='tempo'?'6:05–6:20 · HR 168-176':'7:10–7:40 · HR 140-150';
+      html+='<div class="dkm">'+ph+'</div>';
     }
     html+='</div></div>';
   });
   document.getElementById('wkdays').innerHTML=html;
-  document.getElementById('wkdetail').innerHTML='';
-
-  // Nav buttons
   document.getElementById('wkprev').disabled=idx===0;
   document.getElementById('wknext').disabled=idx===25;
 }
 
-document.getElementById('wkprev').addEventListener('click',function(){renderPlanWeek(viewWk-1);});
-document.getElementById('wknext').addEventListener('click',function(){renderPlanWeek(viewWk+1);});
+document.getElementById('wkprev').addEventListener('click',function(){renderPlan(viewWk-1);});
+document.getElementById('wknext').addEventListener('click',function(){renderPlan(viewWk+1);});
 
-// AI week detail
-document.getElementById('gwbtn').addEventListener('click',function(){
-  var btn=this;btn.disabled=true;
-  document.getElementById('gwtxt').style.display='none';
-  document.getElementById('gwspn').style.display='flex';
-  var w=PLAN[viewWk];
-  var dayKeys=['mon','tue','wed','thu','fri','sat','sun'];
-  var dayLabels=['Понеділок','Вівторок','Середа','Четвер','П\'ятниця','Субота','Неділя'];
-  var planStr=dayLabels.map(function(l,i){return l+': '+w[dayKeys[i]];}).join('\n');
-  document.getElementById('wkdetail').innerHTML='<div style="text-align:center;padding:24px 0"><div class="spn"></div><div style="font-size:13px;color:var(--dim);margin-top:8px">Будую детальний план...</div></div>';
-
-  var sys='Ти персональний марафонський тренер Анастасії. Відповідай ТІЛЬКИ українською. Анастасія, 29 р, Варшава, темп ER 7:15, пульс 153, марафон 27.09.2026. '+PACE_INFO;
-  var pr='Розшифруй план тижня '+(viewWk+1)+' з 26 і дай конкретні поради:\n'+planStr+'\n\nДля кожного дня дай:\n- Конкретний маршрут у Варшаві (Łazienki/Вісла/Pole Mokotowskie)\n- Темп хв:сек на км\n- Пульсову зону\n- 1 практичну пораду\nТакож дай загальні поради на тиждень.';
-  claude([{role:'user',content:pr}],sys,function(err,txt){
-    if(err){document.getElementById('wkdetail').innerHTML='<div class="card" style="color:var(--dim);font-size:13px">'+err+'</div>';}
-    else{document.getElementById('wkdetail').innerHTML='<div class="card"><div style="font-size:12px;color:var(--dim);font-family:DM Mono,monospace;margin-bottom:8px">'+PACE_INFO+'</div><div class="wotxt">'+txt.replace(/\n/g,'<br>')+'</div></div>';}
-    btn.disabled=false;document.getElementById('gwtxt').style.display='';document.getElementById('gwspn').style.display='none';
-  });
-});
-
-// LOG
+// ── LOG ──
 function getLog(){try{return JSON.parse(stGet('mlog')||'[]');}catch(e){return[];}}
 function saveLog(a){stSet('mlog',JSON.stringify(a));}
 
-function updateLogStats(){
-  var log=getLog().filter(function(e){return e.t!=='rest'&&e.t!=='strength';});
-  var km=log.reduce(function(s,e){return s+(parseFloat(e.km)||0);},0);
-  document.getElementById('logkms').textContent=Math.round(km);
-  document.getElementById('runsc').textContent=log.length;
-}
-
 function renderLog(){
-  var log=getLog().slice().reverse();
-  var c=document.getElementById('loglist');
-  if(!log.length){c.innerHTML='<div class="empty">Ще немає записів. Записуй кожне тренування! 🏃‍♀️</div>';return;}
-  var tl={easy:'ER легкий',long:'LR довга',tempo:'TR темповий',interval:'Інтервали',strength:'Силові',rest:'Відпочинок'};
+  var stravaItems=STRAVA.slice().reverse().slice(0,20);
+  var userLog=getLog().slice().reverse();
+  var tl={easy:'ER легкий',long:'LR довга',tempo:'TR темповий',strength:'Силові',rest:'Відпочинок'};
+  var bm={easy:'be',long:'bl',tempo:'bt',strength:'bs',rest:'br'};
   var fe={'5':'🔥','4':'💪','3':'😐','2':'😴','1':'😣'};
-  var bm={easy:'be',long:'bl',tempo:'bt',interval:'bi',strength:'bs',rest:'br'};
   var html='';
-  log.forEach(function(e,i){
-    var idx=log.length-1-i;
-    html+='<div class="le"><div class="et"><span class="bdg '+(bm[e.t]||'br')+'">'+(tl[e.t]||e.t)+'</span>';
-    html+='<div style="display:flex;align-items:center;gap:8px"><span class="edt">'+e.date+'</span>';
+
+  // User log entries first
+  userLog.forEach(function(e,i){
+    var idx=userLog.length-1-i;
+    html+='<div class="le" style="border-color:rgba(197,241,53,.2)">';
+    html+='<div class="et"><span class="bdg '+(bm[e.t]||'be')+'">'+(tl[e.t]||e.t)+'</span>';
+    html+='<div style="display:flex;align-items:center;gap:6px"><span class="edt">'+e.date+' · щоденник</span>';
     html+='<button class="edel" data-idx="'+idx+'">×</button></div></div>';
     html+='<div class="ests">';
     if(e.km)html+='<div class="est"><span class="ev">'+e.km+'</span><span class="el">км</span></div>';
@@ -654,11 +904,29 @@ function renderLog(){
     if(e.note)html+='<div class="enote">"'+e.note+'"</div>';
     html+='</div>';
   });
-  c.innerHTML=html;
+
+  // Strava history
+  stravaItems.forEach(function(r){
+    var badge=r.km>=15?'bl':r.km>=8?'be':'br';
+    var label=r.km>=15?'LR довга':r.km>=8?'ER середня':'ER коротка';
+    html+='<div class="le">';
+    html+='<div class="et"><span class="bdg '+badge+'">'+label+'</span><span class="edt">'+fmtDate(r.date)+' · Strava</span></div>';
+    html+='<div class="ests">';
+    html+='<div class="est"><span class="ev">'+r.km+'</span><span class="el">км</span></div>';
+    if(r.pace>4&&r.pace<12)html+='<div class="est"><span class="ev">'+fmtPace(r.pace)+'</span><span class="el">темп</span></div>';
+    if(r.hr>100)html+='<div class="est"><span class="ev">'+Math.round(r.hr)+'</span><span class="el">уд/хв</span></div>';
+    if(r.cal)html+='<div class="est"><span class="ev">'+r.cal+'</span><span class="el">ккал</span></div>';
+    html+='</div>';
+    html+='<div style="font-size:10px;color:var(--dim)">'+r.name+'</div>';
+    html+='</div>';
+  });
+
+  var c=document.getElementById('loglist');
+  c.innerHTML=html||'<div class="empty">Немає записів</div>';
   c.querySelectorAll('.edel').forEach(function(btn){
     btn.addEventListener('click',function(){
       var i=parseInt(this.getAttribute('data-idx'));
-      var l=getLog();l.splice(i,1);saveLog(l);renderLog();updateLogStats();
+      var l=getLog();l.splice(i,1);saveLog(l);renderLog();
     });
   });
 }
@@ -668,89 +936,18 @@ renderLog();
 
 document.getElementById('savebtn').addEventListener('click',function(){
   var e={id:Date.now(),date:document.getElementById('ldate').value,t:document.getElementById('ltype').value,km:document.getElementById('lkm').value,pace:document.getElementById('lpace').value,hr:document.getElementById('lhr').value,feel:document.getElementById('lfeel').value,note:document.getElementById('lnote').value};
-  var l=getLog();l.push(e);saveLog(l);renderLog();updateLogStats();
+  var l=getLog();l.push(e);saveLog(l);renderLog();
   document.getElementById('lkm').value='';document.getElementById('lpace').value='';
   document.getElementById('lhr').value='';document.getElementById('lnote').value='';
   document.getElementById('lfeel').value='3';
   alert('Збережено! ✅');
 });
 
-// API
-function claude(msgs,sys,cb){
-  var key=getKey();
-  if(!key){
-    key=prompt('Введи Anthropic API ключ (sk-ant-...)\nОтримай на console.anthropic.com');
-    if(!key){cb('Потрібен API ключ');return;}
-    setKey(key.trim());
-  }
-  fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,system:sys,messages:msgs})
-  }).then(function(r){return r.json();}).then(function(d){
-    if(d.error){cb('Помилка: '+d.error.message);return;}
-    cb(null,d.content&&d.content[0]?d.content[0].text:'—');
-  }).catch(function(){cb('Помилка з\'єднання');});
-}
-
-// GEN WORKOUT
-document.getElementById('genbtn').addEventListener('click',function(){
-  var btn=this;btn.disabled=true;
-  document.getElementById('gentxt').style.display='none';document.getElementById('genspn').style.display='flex';
-  var type=document.getElementById('gtype').value;
-  var time=document.getElementById('gtime').value;
-  var feel=document.getElementById('gfeel').value;
-  var place=document.getElementById('gplace').value;
-  var tl={easy:'Легкий ER',tempo:'Темповий TR',interval:'Інтервали',long:'Довга LR',strength:'Силові'};
-  var pl={lazienki:'Łazienki Królewskie',mokotow:'Pole Mokotowskie',vistula:'Набережна Вісли',any:'Варшава'};
-  var fl={great:'відмінно',good:'добре',tired:'втомлена',sore:'болять м\'язи'};
-  var bm={easy:'be',tempo:'bt',interval:'bi',long:'bl',strength:'bs'};
-  var curWk=getCurrentWk();
-  var sys='Ти персональний марафонський тренер Анастасії. Відповідай ТІЛЬКИ українською. Анастасія, 29 р, Варшава, темп ER 7:15, пульс 153, марафон 27.09.2026.\n'+PACE_INFO;
-  var pr='Склади детальне тренування для Анастасії:\n- Тип: '+tl[type]+'\n- Час: '+time+' хв\n- Самопочуття: '+fl[feel]+'\n- Місце: '+pl[place]+'\n- Тиждень '+( curWk+1)+' з 26\nФормат:\n🎯 Назва і ціль\n🔥 Розминка (10 хв) з темпом і вправами\n⚡ Основна частина — точний темп хв:сек, пульсова зона, відрізки\n🧊 Заминка (5-10 хв)\n💡 Порада дня';
-  claude([{role:'user',content:pr}],sys,function(err,txt){
-    document.getElementById('wbadge').className='bdg '+(bm[type]||'be');
-    document.getElementById('wbadge').textContent=tl[type];
-    document.getElementById('wmeta').textContent=time+' хв · '+pl[place];
-    document.getElementById('wtxt').textContent=err?err:txt;
-    document.getElementById('wout').classList.add('show');
-    btn.disabled=false;document.getElementById('gentxt').style.display='';document.getElementById('genspn').style.display='none';
-  });
-});
-
-// CHAT
-document.getElementById('sndbtn').addEventListener('click',sendMsg);
-document.getElementById('cinp').addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg();});
-document.querySelectorAll('.qb').forEach(function(btn){
-  btn.addEventListener('click',function(){document.getElementById('cinp').value=this.getAttribute('data-q');sendMsg();});
-});
-
-function sendMsg(){
-  var inp=document.getElementById('cinp');
-  var msg=inp.value.trim();if(!msg)return;inp.value='';
-  var msgs=document.getElementById('chatmsgs');
-  var now=new Date();
-  var t=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  msgs.innerHTML+='<div class="msg usr"><div class="bub">'+msg+'</div><div class="mt">'+t+'</div></div>';
-  var tid='t'+Date.now();
-  msgs.innerHTML+='<div class="msg ai" id="'+tid+'"><div class="bub"><div class="typing"><span></span><span></span><span></span></div></div></div>';
-  msgs.scrollTop=msgs.scrollHeight;
-  document.getElementById('sndbtn').disabled=true;
-  chatHist.push({role:'user',content:msg});
-  var curWk=getCurrentWk();
-  var w=PLAN[Math.min(curWk,25)];
-  var sys='Ти персональний марафонський тренер Анастасії. ТІЛЬКИ українською. Коротко (3-5 речень), конкретно, з теплотою.\nАнастасія, 29 р, Варшава, темп ER 7:15, пульс 153, марафон 27.09.2026.\nЗараз тиждень '+(curWk+1)+' з 26. Цього тижня: Пн:'+w.mon+', Вт:'+w.tue+', Чт:'+w.thu+', Сб:'+w.sat+', Нд:'+w.sun+'.\n'+PACE_INFO;
-  claude(chatHist.slice(-8),sys,function(err,txt){
-    var el=document.getElementById(tid);
-    var reply=err?err:txt;
-    if(el)el.outerHTML='<div class="msg ai"><div class="bub">'+reply.replace(/\n/g,'<br>')+'</div><div class="mt">Тренер · '+t+'</div></div>';
-    if(!err)chatHist.push({role:'assistant',content:txt});
-    msgs.scrollTop=msgs.scrollHeight;
-    document.getElementById('sndbtn').disabled=false;
-  });
-}
-
-init();
+// ── INIT ──
+buildHome();
+buildDash();
+buildPrediction();
+renderPlan(getCurrentWkIdx());
 
 })();
 </script>
