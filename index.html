@@ -295,7 +295,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
         <div class="week-title" id="planWeekTitle">Тиждень —</div>
         <div class="week-sub" id="planWeekRange"></div>
       </div>
-      <button class="gen-week-btn" id="genWeekBtn" onclick="generateWeekPlan()">
+      <button class="gen-week-btn" id="genWeekBtn">
         <span id="gwTxt">AI план</span>
         <span id="gwSpin" style="display:none"><div class="spin" style="width:14px;height:14px;border-width:2px;margin:0"></div></span>
       </button>
@@ -357,7 +357,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
           <textarea id="logNote" placeholder="Як пройшло тренування?"></textarea>
         </div>
       </div>
-      <button class="save-btn" onclick="saveWorkout()">Зберегти тренування</button>
+      <button class="save-btn" id="saveBtn">Зберегти тренування</button>
     </div>
 
     <div class="card-title" style="padding:0 4px;margin-bottom:10px;">Історія тренувань</div>
@@ -407,7 +407,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
           </select>
         </div>
       </div>
-      <button class="big-btn" id="genBtn" onclick="generateWorkout()">
+      <button class="big-btn" id="genBtn">
         <span id="genTxt">Згенерувати тренування</span>
         <span id="genSpin" style="display:none"><div class="spin" style="width:16px;height:16px;border-width:2px;margin:0;border-top-color:var(--bg)"></div></span>
       </button>
@@ -431,15 +431,15 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
         </div>
       </div>
       <div class="quick-qs">
-        <button class="qbtn" onclick="quickQ('Який цільовий час фінішу для мене?')">Цільовий час?</button>
-        <button class="qbtn" onclick="quickQ('Що їсти перед довгою?')">Харчування?</button>
-        <button class="qbtn" onclick="quickQ('Як уникнути травм?')">Травми?</button>
-        <button class="qbtn" onclick="quickQ('Як тренувати пульс Z2?')">Пульс Z2?</button>
-        <button class="qbtn" onclick="quickQ('Що взяти на марафон?')">На старт?</button>
+        <button class="qbtn" data-q="Який цільовий час фінішу для мене?">Цільовий час?</button>
+        <button class="qbtn" data-q="Що їсти перед довгою?">Харчування?</button>
+        <button class="qbtn" data-q="Як уникнути травм?">Травми?</button>
+        <button class="qbtn" data-q="Як тренувати пульс Z2?">Пульс Z2?</button>
+        <button class="qbtn" data-q="Що взяти на марафон?">На старт?</button>
       </div>
       <div class="chat-input-row">
-        <input class="chat-inp" id="chatInp" placeholder="Запитай тренера..." onkeydown="if(event.key==='Enter')sendMsg()">
-        <button class="send-btn" onclick="sendMsg()">
+        <input class="chat-inp" id="chatInp" placeholder="Запитай тренера...">
+        <button class="send-btn" id="sendBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="#0a0d08" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </div>
@@ -450,19 +450,19 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
 
 <!-- NAV -->
 <nav class="nav">
-  <button class="nav-btn active" onclick="goPage('home',this)">
+  <button class="nav-btn active" data-page="home">
     <span class="nav-icon">🏠</span><span class="nav-label">Головна</span>
   </button>
-  <button class="nav-btn" onclick="goPage('plan',this)">
+  <button class="nav-btn" data-page="plan">
     <span class="nav-icon">📅</span><span class="nav-label">План</span>
   </button>
-  <button class="nav-btn" onclick="goPage('log',this)">
+  <button class="nav-btn" data-page="log">
     <span class="nav-icon">📝</span><span class="nav-label">Щоденник</span>
   </button>
-  <button class="nav-btn" onclick="goPage('gen',this)">
+  <button class="nav-btn" data-page="gen">
     <span class="nav-icon">⚡</span><span class="nav-label">Тренування</span>
   </button>
-  <button class="nav-btn" onclick="goPage('coach',this)">
+  <button class="nav-btn" data-page="coach">
     <span class="nav-icon">💬</span><span class="nav-label">Тренер</span>
   </button>
 </nav>
@@ -472,16 +472,30 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--txt); 
 const MARATHON = new Date('2026-09-27T09:00:00');
 const PLAN_START = new Date('2026-04-16');
 const TOTAL_WEEKS = 23;
-const ATHLETE = `Анастасія, жінка, 29 р, Варшава. База 189 км зі Strava, макс дистанція 21.2 км, середній темп 7:15 хв/км, сер пульс 153 уд/хв. Марафон 27.09.2026.`;
+const ATHLETE = 'Анастасія, жінка, 29 р, Варшава. База 189 км зі Strava, макс дистанція 21.2 км, середній темп 7:15 хв/км, сер пульс 153 уд/хв. Марафон 27.09.2026.';
+
+// ── STORAGE (with fallback) ──
+const store = {
+  _mem: {},
+  get(k) { try { return localStorage.getItem(k); } catch(e) { return this._mem[k]||null; } },
+  set(k,v) { try { localStorage.setItem(k,v); } catch(e) { this._mem[k]=v; } },
+};
+
+// ── API KEY ──
+function getApiKey() { return store.get('mara_api_key') || ''; }
+function saveApiKey(k) { store.set('mara_api_key', k); }
 
 // ── NAVIGATION ──
-function goPage(id, btn) {
+function goPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  btn.classList.add('active');
+  document.querySelector('[data-page="'+id+'"]').classList.add('active');
   document.querySelector('.content').scrollTop = 0;
 }
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', function() { goPage(this.dataset.page); });
+});
 
 // ── COUNTDOWN (live) ──
 function updateCountdown() {
@@ -724,14 +738,40 @@ updateLogStats();
 
 // ── API ──
 async function callClaude(messages, sys) {
+  const key = getApiKey();
+  if (!key) {
+    const k = prompt('Введи свій Anthropic API ключ (sk-ant-...)\nОтримай безкоштовно на console.anthropic.com');
+    if (!k) throw new Error('Немає ключа');
+    saveApiKey(k.trim());
+  }
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': getApiKey(),
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
     body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: sys, messages })
   });
   const data = await res.json();
+  if (data.error) throw new Error(data.error.message);
   return data.content?.[0]?.text || '—';
 }
+
+// ── EVENT LISTENERS ──
+document.getElementById('genWeekBtn').addEventListener('click', generateWeekPlan);
+document.getElementById('saveBtn').addEventListener('click', saveWorkout);
+document.getElementById('genBtn').addEventListener('click', generateWorkout);
+document.getElementById('sendBtn').addEventListener('click', sendMsg);
+document.getElementById('chatInp').addEventListener('keydown', function(e) { if(e.key==='Enter') sendMsg(); });
+document.querySelectorAll('.qbtn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.getElementById('chatInp').value = this.dataset.q;
+    sendMsg();
+  });
+});
+</script>
 
 // ── GENERATE WORKOUT ──
 async function generateWorkout() {
@@ -802,7 +842,7 @@ async function sendMsg() {
   msgs.innerHTML += `<div class="msg ai" id="${tid}"><div class="bubble"><div class="typing"><span></span><span></span><span></span></div></div></div>`;
   msgs.scrollTop = msgs.scrollHeight;
 
-  document.querySelector('.send-btn').disabled = true;
+  document.getElementById('sendBtn').disabled = true;
   chatHistory.push({ role:'user', content:msg });
 
   const weekNum = parseInt(document.getElementById('currentWeekNum').textContent) || 6;
@@ -817,8 +857,8 @@ async function sendMsg() {
   }
 
   msgs.scrollTop = msgs.scrollHeight;
-  document.querySelector('.send-btn').disabled = false;
+  document.getElementById('sendBtn').disabled = false;
 }
-</script>
+
 </body>
 </html>
